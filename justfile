@@ -6,7 +6,7 @@ help:
 
 [doc("update host to target state")]
 apply:
-    @chezmoi -v apply
+    @chezmoi --verbose apply
 
 [doc("diff target and destination states")]
 diff:
