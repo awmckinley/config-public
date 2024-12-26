@@ -1,4 +1,4 @@
-{{ $email := promptString "Email" "adam@awmckinley.net" -}}
+{{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
 
 sourceDir = "~/Code/github.com/awmckinley/config-public"
 
