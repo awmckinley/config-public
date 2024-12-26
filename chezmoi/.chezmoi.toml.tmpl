@@ -1,6 +1,10 @@
 {{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
 
+encryption = "age"
 sourceDir = "~/Code/github.com/awmckinley/config-public"
+
+[age]
+    command = "rage"
 
 [data]
     email = {{ $email | quote }}
