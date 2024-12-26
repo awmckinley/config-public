@@ -8,3 +8,7 @@ sourceDir = "~/Code/github.com/awmckinley/config-public"
 [diff]
     command = "delta"
     pager = "delta"
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
