@@ -1,0 +1,177 @@
+" copy indent
+set autoindent
+
+" automatically read changed files
+set autoread
+
+" use dark mode
+set background=dark
+
+" backspace over indent, end of line, start of insert
+set backspace=indent,eol,start
+
+" never ring bell
+set belloff=all
+
+" use system clipboard
+set clipboard=unnamedplus
+
+" long lines indicator
+set colorcolumn=80
+
+" strings that can start a comment
+set comments+=fb:•
+
+" disable vi compatibility
+set nocompatible
+
+" disable scanning included files
+set complete-=i
+
+" hide extra information about selected completion
+set completeopt-=preview
+
+" use popup menu when there is only one match
+set completeopt+=menuone
+
+" force user to select a match
+set completeopt+=noselect
+
+" use histogram algorithm
+set diffopt+=algorithm:histogram
+
+" display as much of last line as possible
+set display+=lastline
+
+" use UTF-8
+set encoding=utf-8
+
+" delete comment character when joining
+set formatoptions+=j
+
+" no comment with o/O
+set formatoptions-=o
+
+" add HI flags to :grep
+set grepprg=grep\ -HIn\ $*\ /dev/null
+
+" hide abandoned buffers
+set hidden
+
+" increase history
+set history=10000
+
+" highlight search matches
+set hlsearch
+
+" search ignores case until PATTERN
+set ignorecase
+set smartcase
+
+" highlight search
+set incsearch
+
+" one space when joining
+set nojoinspaces
+
+" disable legacy behavior
+set nolangremap
+
+" always show status line
+set laststatus=3
+
+" explicit whitespace
+" NOTE: using nbsp for 2nd tab character
+set list
+set listchars-=eol:$
+set listchars+=tab:> 
+set listchars+=trail:-
+set listchars+=nbsp:+
+
+" use mouse
+set mouse=a
+
+" move cursor to where mouse is clicked
+set mousemodel=popup_setpos
+
+" disable incrementing as octal
+set nrformats-=octal
+
+" line numbers
+set number
+set relativenumber
+
+" find path
+set path=.,,
+
+" show cursor position
+set ruler
+
+" cursor may be on first/last line
+set scrolloff=8
+
+" disable saving options
+set sessionoptions-=options
+set viewoptions-=options
+
+" reduce messages
+set shortmess=ltToOCF
+
+" show command
+set showcmd
+
+" minimal horizontal scroll
+set sidescroll=1
+
+" tab should shift text
+set smarttab
+
+" split below or right
+set splitbelow
+set splitright
+
+" keep cursor in same column
+set nostartofline
+
+" jump to previous window
+set switchbuf=uselast
+
+" increase tab pages
+set tabpagemax=50
+
+" check for tags in every ancestor
+setglobal tags-=./tags
+setglobal tags-=./tags;
+setglobal tags^=./tags;
+
+" make escape key more responsive
+set ttimeout
+set ttimeoutlen=50
+
+" save undo history
+set undofile
+set undolevels=10000
+
+" shorten update time
+set updatetime=250
+
+" persist variables
+set viminfo^=!
+
+" enhance command completion
+set wildmenu
+
+" use popup menu
+set wildoptions+=pum
+
+" display tag kinds
+set wildoptions+=tagfile
+
+" disable visual wrapping
+set nowrap
+
+" detect filetypes
+filetype plugin indent on
+
+" syntax highlighting
+syntax enable
