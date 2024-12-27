@@ -1,0 +1,16 @@
+# .zshenv --- Zsh configuration
+# Usually run for every zsh (before .zprofile).
+
+# Load ~/.profile
+if test -f "${HOME}/.profile"; then
+    . "${HOME}/.profile"
+fi
+
+# Leave ZDOTDIR at default
+ZDOTDIR="${HOME}"
+
+# Functions (zsh Guide 3.3)
+zsh_functions="${ZDOTDIR}/.zfns"
+zsh_functions="${XDG_DATA_HOME}/zsh/functions"
+fpath=($fpath "${zsh_functions}")
+autoload -Uz ${zsh_functions}/*(:t)

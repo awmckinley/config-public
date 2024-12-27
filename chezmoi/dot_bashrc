@@ -1,0 +1,14 @@
+# .bashrc --- Interactive Bash configuration
+# Run for interactive bash shells (instead of .bash_profile).
+
+# Source ~/.profile
+if test -f "${HOME}"/.profile; then
+	. "${HOME}"/.profile
+fi
+
+# Source .bash scripts
+if test -d "${HOME}"/.profile.d; then
+	for f in "${HOME}"/.profile.d/*.bash; do
+		. "$f"
+	done
+fi

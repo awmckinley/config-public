@@ -1,0 +1,4 @@
+# .bash_logout --- Logout Zsh configuration
+# Run for login bash/sh shells upon shutdown.
+
+# Intentionally left blank

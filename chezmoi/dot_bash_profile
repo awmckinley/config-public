@@ -1,0 +1,7 @@
+# .bash_profile --- Login Bash configuration
+# Run for login bash shells (instead of .bash_login, .bashrc or .profile).
+
+# Source ~/.bashrc
+if test -f "${HOME}"/.bashrc; then
+	. "${HOME}"/.bashrc
+fi

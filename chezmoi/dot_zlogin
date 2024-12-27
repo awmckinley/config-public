@@ -1,0 +1,4 @@
+# .zlogin --- Login Zsh configuration
+# Run for login shells (after .zshrc).
+
+# Intentionally left blank

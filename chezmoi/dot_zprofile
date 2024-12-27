@@ -1,0 +1,4 @@
+# .zprofile --- Login Zsh configuration
+# Run for login shells (after .zshenv; before .zshrc).
+
+# Intentionally left blank

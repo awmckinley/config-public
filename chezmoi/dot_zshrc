@@ -1,0 +1,100 @@
+# .zshrc --- Interactive Zsh configuration
+# Run for interactive shells (after .zprofile; before .zlogin).
+
+# Use Vi editing mode
+bindkey -v
+
+# Edit command line with EDITOR
+autoload -Uz edit-command-line
+zle -N edit-command-line
+bindkey -M vicmd 'V' edit-command-line
+
+# Recommended keys
+bindkey '^P' up-history
+bindkey '^N' down-history
+bindkey '^?' backward-delete-char
+bindkey '^h' backward-delete-char
+bindkey '^w' backward-kill-word
+bindkey '^r' history-incremental-search-backward
+bindkey '^s' history-incremental-search-forward # broken?
+bindkey '^a' beginning-of-line
+bindkey '^e' end-of-line
+
+# Switch between modes instantly
+KEYTIMEOUT=1
+
+# Drop duplicate values
+typeset -U CDPATH cdpath
+typeset -U FPATH fpath
+typeset -U MANPATH manpath
+typeset -U PATH path
+
+# run-help (nix-darwin)
+HELPDIR="/run/current-system/sw/share/zsh/${ZSH_VERSION}/help"
+
+# Disable adding plugin bins to PATH
+ZGENOM_AUTO_ADD_BIN=0
+
+# zgenom dir
+local zgenom_dir="${HOME}/.zgenom"
+
+# Clone zgenom
+if test ! -d "${zgenom_dir}"; then
+	git clone --single-branch https://github.com/jandamm/zgenom.git "${zgenom_dir}"
+fi
+
+# Load zgenom
+source "${zgenom_dir}/zgenom.zsh"
+
+# Update zgenom
+zgenom autoupdate
+
+# Install plugins
+if ! zgenom saved; then
+	# Fzf completion
+	zgenom load Aloxaf/fzf-tab
+
+	# Syntax highlighting
+	zgenom load zdharma-continuum/fast-syntax-highlighting
+
+	# After syntax highlighting
+	zgenom load zsh-users/zsh-history-substring-search
+
+	# Fish-like autosuggestions
+	zgenom load zsh-users/zsh-autosuggestions
+
+	# Auto-expanding abbreviations
+	zgenom load olets/zsh-abbr
+
+	# Use zsh in nix-shell shells
+	zgenom load chisui/zsh-nix-shell
+
+	# Save zgenom
+	zgenom save
+fi
+
+# Bind history keys
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
+
+# Source .zsh scripts
+if test -d "${HOME}"/.profile.d; then
+	for f in "${HOME}"/.profile.d/*.zsh; do
+		. "$f"
+	done
+fi
+
+# History options
+HISTSIZE="50000"
+SAVEHIST="50000"
+HISTFILE="${ZDOTDIR}/.zsh_history"
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_ALL_DUPS
+setopt HIST_IGNORE_SPACE
+setopt HIST_EXPIRE_DUPS_FIRST
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
+# Auto CD
+setopt autocd
