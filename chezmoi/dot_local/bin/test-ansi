@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Is the terminal limited to 16 ANSI colors?
+
+# 16 colors (8 normal + 8 bright)
+test "$(tput colors)" = 8
+
+# If this is true, assume the terminal is a Linux console with a limited
+# console font (like Terminus).

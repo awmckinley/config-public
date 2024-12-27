@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Is the terminal limited to 256 ANSI colors?
+
+# 256 colors
+test "$(tput colors)" = 256
+
+# If this is true, assume the terminal can output Unicode, but not emojis nor
+# Nerd Font icons.

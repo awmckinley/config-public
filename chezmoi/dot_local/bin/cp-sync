@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+#
+# Copy to or from based on updated time.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+source="${1:-}"
+target="${2:-}"
+
+# validate arguments
+if test "$source" = '' || test "$target" = ''; then
+	echo "Usage: $(basename "$0") <source> <target>"
+	exit
+fi
+
+# get the modified time
+function mtime() {
+	stat -r "$1" 2>/dev/null | awk '{print $10}' || echo ''
+}
+
+# file times
+source_time="$(mtime "$source")"
+target_time="$(mtime "$target")"
+
+# do the copy
+if test "$source_time" = '' && test "$target_time" = ''; then
+	echo "${source} and ${target} are missing"
+elif test "$target_time" = '' || test ! "$source_time" -lt "$target_time"; then
+	cp "$source" "$target"
+elif test "$source_time" = '' || test ! "$source_time" -gt "$target_time"; then
+	cp "$target" "$source"
+fi

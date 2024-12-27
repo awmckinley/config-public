@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Does the terminal support truecolor (24-bit)?
+
+# Works for WezTerm
+test "${COLORTERM}" = truecolor

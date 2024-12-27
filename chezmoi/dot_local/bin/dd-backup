@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Backup SD card (for Raspberry PI).
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+disk="${1:-}"
+
+# validate arguments
+if test "$disk" = ''; then
+	echo "Usage: $(basename "$0") <disk>"
+	echo "'diskutil list' to list disks"
+	exit
+fi
+
+sudo dd bs=1m if="$disk" of="${HOME}/Downloads/dd-backup.dmg"

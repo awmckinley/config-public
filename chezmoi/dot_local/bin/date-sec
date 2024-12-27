@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#
+# Get the current UTC to the second as an integer.
+
+set -o nounset
+set -o errexit
+
+date --utc +%Y%m%d%H%M%S

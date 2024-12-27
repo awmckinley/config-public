@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Are we running on macOS / Darwin?
+
+# On Darwin kernel
+test "$(uname -s)" = Darwin

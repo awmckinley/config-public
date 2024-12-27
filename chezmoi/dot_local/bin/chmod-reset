@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Fix the permissions of all files in a folder.
+
+set -o nounset
+set -o errexit
+
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;

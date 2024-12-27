@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Return domain of email address.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+addr="${1:-}"
+
+# validate arguments
+if test "$addr" = ''; then
+	echo "Usage: $(basename "$0") <addr>" >&2
+	exit 1
+fi
+
+echo "$addr" | cut -d @ -f 2

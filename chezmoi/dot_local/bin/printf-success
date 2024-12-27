@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Print success.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+line="${1:-}"
+
+# ensure arguments are provided
+if test "$line" = ''; then
+	echo "Usage: $(basename "$0") <line>" >&2
+	exit 1
+fi
+
+printf "\e[0;32m%s\e[0m\n" "$line"

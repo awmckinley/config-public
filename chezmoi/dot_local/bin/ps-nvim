@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+#
+# Test whether the TTY is running Neovim.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+tty="${1:-}"
+
+# validate arguments
+if test "$tty" = ''; then
+	echo "Usage: $(basename "$0") <tty>" >&2
+	exit 1
+fi
+
+# shellcheck disable=SC2009
+ps -o state= -o comm= -t "$tty" |
+	grep -iqE '^[^TXZ ]+ +(\\S+\\/)?nvim$'

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Delete all empty subfolders.
+
+set -o nounset
+set -o errexit
+
+find * -type f -name '.DS_Store' -delete
+find * -type d -empty -delete

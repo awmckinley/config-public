@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+#
+# Symbolically links a file.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+target="${1:-}"
+source="${2:-}"
+
+# validate arguments
+if test "$target" = '' || test "$source" = ''; then
+	echo "Usage: $(basename "$0") <target> <source>"
+	exit
+fi
+
+# make the parent directory
+mkdir -p "$(dirname "$target")"
+
+# remove the current target
+rm -f "$target"
+
+# make the link
+ln -sf "$(
+	cd "$(dirname "$source")"
+	pwd -P
+)/$(basename "$source")" "$target"
