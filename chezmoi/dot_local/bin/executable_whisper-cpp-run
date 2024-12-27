@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Run OpenAI Whisper.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+input="${1:-}"
+
+# validate arguments
+if test "$input" = ''; then
+	echo "Usage: $(basename "$0") <input>" >&2
+	exit 1
+fi
+
+output="${input%.*}"
+wav="${output}.wav"
+
+if ! test -f "$wav"; then
+	ffmpeg -i "$input" -vn -acodec pcm_s16le -ar 16000 -ac 1 "$wav"
+fi
+
+model='small.en'
+whisper-cpp \
+	--output-txt \
+	--output-vtt \
+	--output-srt \
+	--output-lrc \
+	--output-csv \
+	--output-file "$output" \
+	--model "${XDG_DATA_HOME}/whisper-cpp/ggml-${model}.bin" \
+	"$wav"

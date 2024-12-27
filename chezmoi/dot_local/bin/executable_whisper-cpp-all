@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Transcribe all media.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# m4a files one-at-a-time
+fd -e m4a -j 1 -x whisper-cpp-run {}
+
+# mov files one-at-a-time
+fd -e mov -j 1 -x whisper-cpp-run {}
+
+# mp4 files one-at-a-time
+fd -e mp4 -j 1 -x whisper-cpp-run {}
+
+# webm files one-at-a-time
+fd -e webm -j 1 -x whisper-cpp-run {}
