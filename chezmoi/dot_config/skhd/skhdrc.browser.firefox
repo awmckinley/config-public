@@ -1,0 +1,6 @@
+#
+# Firefox hotkeys
+#
+
+# open Firefox
+meh + cmd - return : firefox

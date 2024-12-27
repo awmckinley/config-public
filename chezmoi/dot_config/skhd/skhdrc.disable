@@ -1,0 +1,9 @@
+#
+# disabled hotkeys
+#
+
+# disable `Hide Application`
+cmd - h : exit
+
+# disable `Quit Application`
+cmd - q : exit

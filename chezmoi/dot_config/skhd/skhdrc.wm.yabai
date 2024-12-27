@@ -1,0 +1,27 @@
+#
+# yabai hotkeys
+#
+
+# quit yabai
+hyper - q : yabai --stop-service; noti -m 'yabai stop'
+wm < shift-q : skhd -k "escape"; yabai --stop-service; noti -m 'yabai stop'
+
+# window focus motions
+meh - h : yabai -m window --focus west
+meh - j : yabai -m window --focus south
+meh - k : yabai -m window --focus north
+meh - l : yabai -m window --focus east
+wm < h : yabai -m window --focus west
+wm < j : yabai -m window --focus south
+wm < k : yabai -m window --focus north
+wm < l : yabai -m window --focus east
+
+# window swap motions
+hyper - h : yabai -m window --swap west
+hyper - j : yabai -m window --swap south
+hyper - k : yabai -m window --swap north
+hyper - l : yabai -m window --swap east
+wm < shift - h : yabai -m window --swap west
+wm < shift - j : yabai -m window --swap south
+wm < shift - k : yabai -m window --swap north
+wm < shift - l : yabai -m window --swap east

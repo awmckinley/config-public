@@ -1,0 +1,56 @@
+#
+# default mode
+#
+
+# on_enter default mode
+:: default : skhd -k "f20"
+
+# update sketchybar
+f20 : sketchybar --trigger skhd_mode MODE=NORMAL
+
+#
+# wm mode "mehlock"
+#
+
+# on_enter wm mode
+:: wm @ : skhd -k "f20"
+
+# enter wm mode
+meh-space ; wm
+
+# leave wm mode
+wm < escape ; default
+
+# update sketchybar
+wm < f20 : sketchybar --trigger skhd_mode MODE=WINDOW
+
+#
+# global hotkeys
+#
+
+# reload configs
+meh - r : desktop-reload
+wm < r : desktop-reload
+
+# lock screen
+meh - z : skhd -k "cmd + ctrl - q"
+wm < z : skhd -k "escape"; skhd -k "cmd + ctrl - q"
+
+#
+# external hotkeys
+#
+
+# disabled hotkeys
+.load "skhdrc.disable"
+
+# browser hotkeys
+.load "skhdrc.browser.firefox"
+
+# launcher hotkeys
+.load "skhdrc.launcher.raycast"
+
+# terminal hotkeys
+.load "skhdrc.term.wezterm"
+
+# wm hotkeys
+.load "skhdrc.wm.aerospace"

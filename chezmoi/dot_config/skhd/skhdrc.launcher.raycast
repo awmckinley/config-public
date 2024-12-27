@@ -1,0 +1,7 @@
+#
+# Raycast hotkeys
+#
+
+# open Raycast
+meh - d : open -a /Applications/Raycast.app
+wm < d : skhd -k "escape"; open -a /Applications/Raycast.app

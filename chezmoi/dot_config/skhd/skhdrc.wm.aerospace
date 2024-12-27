@@ -1,0 +1,112 @@
+#
+# AeroSpace hotkeys
+#
+
+# quit AeroSpace
+hyper - q : pkill -x AeroSpace
+wm < shift-q : skhd -k "escape"; pkill -x AeroSpace
+
+# focus motions
+meh - h : aerospace focus left
+meh - j : aerospace focus down
+meh - k : aerospace focus up
+meh - l : aerospace focus right
+wm < h : aerospace focus left
+wm < j : aerospace focus down
+wm < k : aerospace focus up
+wm < l : aerospace focus right
+
+# move motions
+hyper - h : aerospace move left
+hyper - j : aerospace move down
+hyper - k : aerospace move up
+hyper - l : aerospace move right
+wm < shift - h : aerospace move left
+wm < shift - j : aerospace move down
+wm < shift - k : aerospace move up
+wm < shift - l : aerospace move right
+
+# spaces focus
+alt + ctrl - 1 : aerospace workspace 01
+alt + ctrl - 2 : aerospace workspace 02
+alt + ctrl - 3 : aerospace workspace 03
+alt + ctrl - 4 : aerospace workspace 04
+alt + ctrl - 5 : aerospace workspace 05
+alt + ctrl - 6 : aerospace workspace 06
+alt + ctrl - 7 : aerospace workspace 07
+alt + ctrl - 8 : aerospace workspace 08
+alt + ctrl - 9 : aerospace workspace 09
+alt + ctrl - 0 : aerospace workspace 10
+wm < 0x12 : aerospace workspace 01
+wm < 0x13 : aerospace workspace 02
+wm < 0x14 : aerospace workspace 03
+wm < 0x15 : aerospace workspace 04
+wm < 0x17 : aerospace workspace 05
+wm < 0x16 : aerospace workspace 06
+wm < 0x1A : aerospace workspace 07
+wm < 0x1C : aerospace workspace 08
+wm < 0x19 : aerospace workspace 09
+wm < 0x1D : aerospace workspace 10
+
+# spaces send
+cmd + alt + ctrl - 1 : aerospace move-node-to-workspace 01 && aerospace workspace 01
+cmd + alt + ctrl - 2 : aerospace move-node-to-workspace 02 && aerospace workspace 02
+cmd + alt + ctrl - 3 : aerospace move-node-to-workspace 03 && aerospace workspace 03
+cmd + alt + ctrl - 4 : aerospace move-node-to-workspace 04 && aerospace workspace 04
+cmd + alt + ctrl - 5 : aerospace move-node-to-workspace 05 && aerospace workspace 05
+cmd + alt + ctrl - 6 : aerospace move-node-to-workspace 06 && aerospace workspace 06
+cmd + alt + ctrl - 7 : aerospace move-node-to-workspace 07 && aerospace workspace 07
+cmd + alt + ctrl - 8 : aerospace move-node-to-workspace 08 && aerospace workspace 08
+cmd + alt + ctrl - 9 : aerospace move-node-to-workspace 09 && aerospace workspace 09
+cmd + alt + ctrl - 0 : aerospace move-node-to-workspace 10 && aerospace workspace 10
+wm < shift - 0x12 : aerospace move-node-to-workspace 01 && aerospace workspace 01
+wm < shift - 0x13 : aerospace move-node-to-workspace 02 && aerospace workspace 02
+wm < shift - 0x14 : aerospace move-node-to-workspace 03 && aerospace workspace 03
+wm < shift - 0x15 : aerospace move-node-to-workspace 04 && aerospace workspace 04
+wm < shift - 0x17 : aerospace move-node-to-workspace 05 && aerospace workspace 05
+wm < shift - 0x16 : aerospace move-node-to-workspace 06 && aerospace workspace 06
+wm < shift - 0x1A : aerospace move-node-to-workspace 07 && aerospace workspace 07
+wm < shift - 0x1C : aerospace move-node-to-workspace 08 && aerospace workspace 08
+wm < shift - 0x19 : aerospace move-node-to-workspace 09 && aerospace workspace 09
+wm < shift - 0x1D : aerospace move-node-to-workspace 10 && aerospace workspace 10
+
+# toggle fullscreen
+meh - f : aerospace fullscreen
+wm < f : aerospace fullscreen
+
+# focus next
+meh - n : aerospace focus right || aerospace focus down
+wm < n : aerospace focus right || aerospace focus down
+
+# toggle orientation
+meh - o : aerospace layout horizontal vertical
+wm < o : aerospace layout horizontal vertical
+
+# focus previous
+meh - p : aerospace focus left || aerospace focus up
+wm < p : aerospace focus left || aerospace focus up
+
+# split below
+meh - s : aerospace join-with left || aerospace join-with right
+wm < s : aerospace join-with left || aerospace join-with right
+
+# toggle float
+meh - t : aerospace layout floating tiling
+wm < t : aerospace layout floating tiling
+
+# split right
+meh - v : aerospace join-with up || aerospace join-with down
+wm < v : aerospace join-with up || aerospace join-with down
+
+# resize
+meh - right : aerospace resize width +50
+meh - up : aerospace resize height +50
+meh - left : aerospace resize width -50
+meh - down : aerospace resize height -50
+wm < right : aerospace resize width +50
+wm < up : aerospace resize height +50
+wm < left : aerospace resize width -50
+wm < down : aerospace resize height -50
+
+# cycle layouts (stacking/tiled)
+# meh - space : aerospace layout tiles accordion
