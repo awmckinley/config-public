@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Reset Neovim state.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+trash "${XDG_CACHE_HOME}/nvim"
+trash "${XDG_DATA_HOME}/nvim"
+trash "${XDG_STATE_HOME}/nvim"
