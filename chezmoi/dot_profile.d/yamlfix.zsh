@@ -1,0 +1,1 @@
+export YAMLFIX_LINE_LENGTH=100
