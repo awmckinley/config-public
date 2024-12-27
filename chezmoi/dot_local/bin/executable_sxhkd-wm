@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+#
+# Start sxhkd for WM.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+wm="${1-}"
+
+# validate arguments
+if test "$wm" = ''; then
+	echo "Usage: $(basename "$0") <wm>"
+	exit 1
+fi
+
+pgrep -x sxhkd >/dev/null || sxhkd \
+	"${HOME}/.config/sxhkd/sxhkdrc.browser.firefox" \
+	"${HOME}/.config/sxhkd/sxhkdrc.launcher.rofi" \
+	"${HOME}/.config/sxhkd/sxhkdrc.term.wezterm" \
+	"${HOME}/.config/sxhkd/sxhkdrc.wm.${wm}"
