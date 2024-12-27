@@ -1,0 +1,7 @@
+#
+# WezTerm hotkeys
+#
+
+# launch terminal (meh + enter)
+alt + ctrl + shift + Return
+	wezterm start --always-new-process

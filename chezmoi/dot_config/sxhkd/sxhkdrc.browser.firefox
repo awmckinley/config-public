@@ -1,0 +1,7 @@
+#
+# Firefox hotkeys
+#
+
+# launch browser (hyper + enter)
+super + alt + ctrl + shift + Return
+	firefox

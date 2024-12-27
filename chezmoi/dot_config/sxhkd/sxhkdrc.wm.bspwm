@@ -1,0 +1,106 @@
+#
+# bspwm hotkeys
+#
+
+# quit to display manager (hyper + q)
+super + alt + ctrl + shift + q
+	bspc quit
+
+# focus motions
+
+# grug brained wrap implementation:
+# no obvious way to target farthest east
+# just try east#east#... to east
+# it works
+
+# focus west w/ wrap
+alt + ctrl + shift + h
+	bspc node --focus 'west' || \
+	bspc node --focus 'east#east#east' || \
+	bspc node --focus 'east#east' || \
+	bspc node --focus 'east'
+
+# focus south w/ wrap
+alt + ctrl + shift + j
+	bspc node --focus 'south' || \
+	bspc node --focus 'north#north#north' || \
+	bspc node --focus 'north#north' || \
+	bspc node --focus 'north'
+
+# focus north w/ wrap
+alt + ctrl + shift + k
+	bspc node --focus 'north' || \
+	bspc node --focus 'south#south#south' || \
+	bspc node --focus 'south#south' || \
+	bspc node --focus 'south'
+
+# focus east w/ wrap
+alt + ctrl + shift + l
+	bspc node --focus 'east' || \
+	bspc node --focus 'west#west#west' || \
+	bspc node --focus 'west#west' || \
+	bspc node --focus 'west'
+
+# move motions
+super + alt + ctrl + shift + {h,j,k,l}
+	bspc node --swap {west,south,north,east}
+
+# focus workspace
+alt + ctrl + {1-9,0}
+	bspc desktop --focus '^{1-9,10}'
+
+# send to workspace
+super + alt + ctrl + {1-9,0}
+	bspc node --to-desktop '^{1-9,10}'
+
+# fullscreen toggle
+alt + ctrl + shift + f
+	bspc node -t '~fullscreen'
+
+# rotate windows
+alt + ctrl + shift + o
+	bspc node 'first_ancestor' -R 90
+
+# split below
+alt + ctrl + shift + s
+	bspc node -p south
+
+# toggle float (center)
+alt + ctrl + shift + t
+	bspc node -t '~floating'
+
+# split right
+alt + ctrl + shift + v
+	bspc node -p east
+
+# kill window
+alt + ctrl + shift + w
+	bspc node -c
+
+# grow width
+alt + ctrl + shift + Right
+	bspc node -z right 10 0; \
+	bspc node -z left -10 0
+
+# grow height
+alt + ctrl + shift + Up
+	bspc node -z top 0 -10; \
+	bspc node -z bottom 0 10
+
+# shrink width
+alt + ctrl + shift + Left
+	bspc node -z right -10 0; \
+	bspc node -z left 10 0
+
+# grow height
+alt + ctrl + shift + Down
+	bspc node -z top 0 10; \
+	bspc node -z bottom 0 -10
+
+# move floater
+super + alt + ctrl + shift + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# cycle layouts
+alt + ctrl + shift + space
+	bspc desktop -l next

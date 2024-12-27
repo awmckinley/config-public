@@ -1,0 +1,7 @@
+#
+# Rofi hotkeys
+#
+
+# launch launcher (meh + d)
+alt + ctrl + shift + d
+	rofi -show drun

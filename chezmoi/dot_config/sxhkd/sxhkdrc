@@ -1,0 +1,11 @@
+#
+# global hotkeys
+#
+
+# reload config (meh + r)
+alt + ctrl + shift + r
+	desktop-reload
+
+# lock screen (meh + z)
+alt + ctrl + shift + z
+	loginctl lock-session
