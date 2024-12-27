@@ -1,0 +1,9 @@
+[manager]
+show_hidden = true
+
+[[plugin.prepend_fetchers]]
+id = "mime"
+if = "!mime"
+name = "*"
+prio = "high"
+run = "mime-ext"

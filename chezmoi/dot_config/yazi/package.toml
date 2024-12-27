@@ -1,0 +1,5 @@
+[plugin]
+deps = [{ use = "yazi-rs/plugins:mime-ext", rev = "4f1d0ae" }]
+
+[flavor]
+deps = []

@@ -1,0 +1,2 @@
+[status]
+mode_normal = { fg = "gray", bg = "black" }
