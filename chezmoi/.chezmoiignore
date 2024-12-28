@@ -3,6 +3,17 @@
 {{ if eq .chezmoi.os "windows" }}
 .config/git/
 .config/nushell/
+.bash_logout
+.bash_profile
+.bashrc
+.init.d/
+.profile
+.profile.d/
+.zlogin
+.zlogout
+.zprofile
+.zshenv
+.zshrc
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
