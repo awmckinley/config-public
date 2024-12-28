@@ -1,3 +1,6 @@
+[credential "https://github.com"]
+	useHttpPath = true
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	process = git-lfs filter-process
