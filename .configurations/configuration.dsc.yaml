@@ -268,6 +268,14 @@ properties:
         id: Neovim.Neovim
         source: winget
 
+    - id: Nushell.Nushell
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Nushell
+      settings:
+        id: Nushell.Nushell
+        source: winget
+
     - id: OliverBetz.ExifTool
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
