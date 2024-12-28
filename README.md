@@ -11,7 +11,7 @@ chezmoi init awmckinley/config-public --apply --source "${HOME}/Code/github.com/
 
 ## Windows
 
-```sh
+```powershell
 # Set up a new machine
 chezmoi init awmckinley/config-public --apply --source "D:/github.com/awmckinley/config-public" --verbose
 ```
