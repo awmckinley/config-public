@@ -1,5 +1,7 @@
 #!/usr/bin/env -S just --justfile
 
+set shell := ["nu", "-c"]
+
 [doc("list available recipes")]
 help:
     @just --list
