@@ -1,7 +1,7 @@
 {{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
 
 encryption = "age"
-sourceDir = "~/Code/github.com/awmckinley/config-public"
+sourceDir = "{{ .chezmoi.sourceDir }}"
 
 [age]
     command = "rage"
