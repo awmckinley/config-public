@@ -1,7 +1,10 @@
+.config/yazi/plugins/
+
 {{ if eq .chezmoi.os "windows" }}
 .config/git/
+.config/nushell/
 {{ end }}
-.config/yazi/plugins/
+
 {{ if ne .chezmoi.os "windows" }}
 AppData/
 {{ end }}
