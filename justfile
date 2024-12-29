@@ -17,3 +17,7 @@ diff:
 [doc("check for potential problems")]
 doctor:
     @chezmoi doctor
+
+[doc("launch Nix repl")]
+repl:
+    @nix repl --expr $"builtins.getFlake \"($env.PWD)\""
