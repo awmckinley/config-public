@@ -1,0 +1,113 @@
+# run after login
+after-login-command = []
+
+# run after AeroSpace
+after-startup-command = []
+
+# start at login
+start-at-login = true
+
+# normalizations
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+# accordion padding
+accordion-padding = 30
+
+# tile by default
+default-root-container-layout = "tiles"
+
+# auto orientation
+default-root-container-orientation = "auto"
+
+[gaps]
+inner.horizontal = 12
+inner.vertical = 12
+outer.bottom = 50 # bar height (40) + border width (10)
+outer.left = 12
+outer.right = 12
+outer.top = 12
+
+[mode.main.binding]
+
+[workspace-to-monitor-force-assignment]
+01 = "main"
+02 = "main"
+03 = "main"
+04 = "main"
+05 = "main"
+06 = "secondary"
+07 = "secondary"
+08 = "secondary"
+09 = "secondary"
+10 = "secondary"
+
+# workspace 1
+
+[[on-window-detected]]
+if.app-id = "com.apple.finder"
+run = ["move-node-to-workspace 01"]
+
+[[on-window-detected]]
+if.app-id = "com.dueapps.duemac-setapp"
+run = ["move-node-to-workspace 01"]
+
+[[on-window-detected]]
+if.app-id = "com.panic.Transmit"
+run = ["move-node-to-workspace 01"]
+
+# workspace 2
+
+[[on-window-detected]]
+if.app-id = "com.p5sys.jumpdesktop-setapp"
+run = ["move-node-to-workspace 02"]
+
+# workspace 3
+
+[[on-window-detected]]
+if.app-id = "com.github.wez.wezterm"
+run = ["move-node-to-workspace 03"]
+
+# workspace 4
+
+[[on-window-detected]]
+if.app-id = "com.apple.MobileSMS"
+run = ["move-node-to-workspace 04"]
+
+# workspace 5
+
+# workspace 6
+
+[[on-window-detected]]
+if.app-id = "md.obsidian"
+run = ["move-node-to-workspace 06"]
+
+# workspace 7
+
+[[on-window-detected]]
+if.app-id = "com.apple.Safari"
+run = ["move-node-to-workspace 07"]
+
+[[on-window-detected]]
+if.app-id = "com.google.Chrome"
+run = ["move-node-to-workspace 07"]
+
+[[on-window-detected]]
+if.app-id = "company.thebrowser.Browser"
+run = ["move-node-to-workspace 07"]
+
+[[on-window-detected]]
+if.app-id = "org.qutebrowser.qutebrowser"
+run = ["move-node-to-workspace 07"]
+
+# workspace 8
+
+[[on-window-detected]]
+if.app-id = "tv.plex.desktop"
+run = ["move-node-to-workspace 08"]
+
+# floaters
+
+[[on-window-detected]]
+if.app-id = "com.macpaw.CleanMyMac-setapp"
+run = ["layout floating"]
