@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+#
+# Extract audio file from video file.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+input="${1:-}"
+
+# validate arguments
+if test "$input" = ''; then
+	echo "Usage: $(basename "$0") <input>" >&2
+	exit 1
+fi
+
+output="${input%.*}"
+outext=$(ffprobe "$input" 2>&1 | sed -En 's/.*Audio: (...).*/\1/p')
+
+# rename aac to m4a
+if test "$outext" = 'aac'; then
+	outext='m4a'
+fi
+
+# rename vor to ogg
+if test "$outext" = 'vor'; then
+	outext='ogg'
+fi
+
+ffmpeg -i "$input" -vn -acodec copy "$output"."$outext"
