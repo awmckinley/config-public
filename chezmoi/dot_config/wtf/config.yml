@@ -1,0 +1,40 @@
+---
+wtf:
+  mods:
+    inbox:
+      args: []
+      cmd: fd-inbox
+      enabled: true
+      position:
+        height: 1
+        left: 0
+        top: 1
+        width: 1
+      refreshInterval: 5m
+      title: Inbox
+      type: cmdrunner
+    logs:
+      args: [-f, ~/.local/share/cron.log]
+      cmd: tail
+      enabled: true
+      position:
+        height: 1
+        left: 0
+        top: 2
+        width: 1
+      pty: true
+      title: Cron
+      type: cmdrunner
+    tasks:
+      args: [custom.wtfutil]
+      cmd: task
+      enabled: true
+      position:
+        height: 1
+        left: 0
+        top: 0
+        width: 1
+      pty: true
+      refreshInterval: 1m
+      title: Tasks
+      type: cmdrunner
