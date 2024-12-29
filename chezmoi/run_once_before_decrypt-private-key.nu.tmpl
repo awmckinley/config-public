@@ -1,0 +1,13 @@
+#!/usr/bin/env nu
+
+let configDir = $"($env.HOME)/.config/chezmoi"
+let keyFile = $"($configDir)/key.txt"
+
+def main [] {
+	if not ($keyFile | path exists) {
+		mkdir $"($configDir)"
+		print "Decrypting encryption key..."
+		rage --decrypt --output $"($keyFile)" "{{ .chezmoi.sourceDir }}/key.txt.age"
+		chmod 600 $"($keyFile)"
+	}
+}
