@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# Preview a tmux session.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+select="${1:-}"
+
+# validate arguments
+if test "$select" = ''; then
+	echo "Usage: $(basename "$0") <select>" >&2
+	exit 1
+fi
+
+# session name (parent|folder)
+session="$select"
+session="$(echo "$session" | rev | cut -d / -f -2 | rev)"
+session="$(echo "$session" | tr '.' '_' | tr '/' '|')"
+
+# list windows
+tmux list-windows -t "$session"

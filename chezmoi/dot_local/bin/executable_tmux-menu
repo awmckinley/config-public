@@ -1,0 +1,46 @@
+#!/usr/bin/env bash
+#
+# Attach to project session.
+#
+# TODO: could list projects with mani
+# mani list projects --headers project,path --no-color | tail --lines +4 | head --lines -1
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+select="${1:-}"
+
+if test "$select" != ''; then
+	# remove $HOME from path
+	select="${select#"${HOME}"/}"
+else
+	# search paths
+	search=(Code)
+
+	# get user selection
+	select="$(
+		(
+			fd --exact-depth 3 --type directory --base-directory "$HOME" --format '{}' . "${search[@]}"
+		) | sort | fzf --scheme=path --preview='tmux-preview {}'
+	)"
+fi
+
+# session name (parent|folder)
+session="$select"
+session="$(echo "$session" | rev | cut -d / -f -2 | rev)"
+session="$(echo "$session" | tr '.' '_' | tr '/' '|')"
+
+# new session
+if ! tmux has-session -t "=${session}" 2>/dev/null; then
+	tmux new-session -d -c "${HOME}/${select}" -s "$session"
+fi
+
+# switch or attach session
+if test "${TMUX:-}" != ""; then
+	tmux switch-client -t "=${session}"
+else
+	tmux attach-session -t "=${session}"
+fi
