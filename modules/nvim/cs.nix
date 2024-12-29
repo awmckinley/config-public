@@ -37,8 +37,8 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      csharpier = final.callPackage ../packages/csharpier.nix { };
-      kiota = final.callPackage ../packages/kiota.nix { };
+      csharpier = final.callPackage ../../packages/csharpier.nix { };
+      kiota = final.callPackage ../../packages/kiota.nix { };
     })
   ];
 }
