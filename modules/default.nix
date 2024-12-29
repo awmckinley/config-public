@@ -14,6 +14,7 @@ _: {
     ./input
     ./media
     ./net
+    ./nvim
     ./pkg
     ./secret
     ./shell

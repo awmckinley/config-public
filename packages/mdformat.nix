@@ -1,10 +1,10 @@
 {
   lib,
-  python3,
+  python312,
   runCommand,
 }:
 let
-  python = python3;
+  python = python312;
   withPlugins =
     selector:
     runCommand "mdformat-wrapped"
