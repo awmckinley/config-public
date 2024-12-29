@@ -1,0 +1,37 @@
+[colors]
+ansi = [
+	"#16181a",
+	"#ff6e5e",
+	"#5eff6c",
+	"#f1ff5e",
+	"#5ea1ff",
+	"#bd5eff",
+	"#5ef1ff",
+	"#ffffff",
+]
+background = "#16181a"
+brights = [
+	"#3c4048",
+	"#ff6e5e",
+	"#5eff6c",
+	"#f1ff5e",
+	"#5ea1ff",
+	"#bd5eff",
+	"#5ef1ff",
+	"#ffffff",
+]
+cursor_bg = "#ffffff"
+cursor_border = "#ffffff"
+cursor_fg = "#16181a"
+foreground = "#ffffff"
+scrollbar_thumb = "#16181a"
+selection_bg = "#3c4048"
+selection_fg = "#ffffff"
+split = "#16181a"
+
+[colors.indexed]
+16 = "#ffbd5e"
+17 = "#ff6e5e"
+
+[metadata]
+name = "Cyberdream Dark"

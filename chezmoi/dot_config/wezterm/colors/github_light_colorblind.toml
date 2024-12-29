@@ -1,0 +1,31 @@
+[colors]
+ansi = [
+	"#24292f",
+	"#b35900",
+	"#0550ae",
+	"#4d2d00",
+	"#0969da",
+	"#8250df",
+	"#1b7c83",
+	"#6e7781",
+]
+background = "#ffffff"
+brights = [
+	"#57606a",
+	"#8a4600",
+	"#0969da",
+	"#633c01",
+	"#218bff",
+	"#a475f9",
+	"#3192aa",
+	"#8c959f",
+]
+cursor_bg = "#24292f"
+cursor_border = "#24292f"
+cursor_fg = "#ffffff"
+foreground = "#24292f"
+selection_bg = "#bbdfff"
+selection_fg = "#24292f"
+
+[metadata]
+name = "GitHub Light Colorblind"

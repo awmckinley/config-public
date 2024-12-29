@@ -1,0 +1,60 @@
+[colors]
+ansi = [
+	"#ffffff",
+	"#a60000",
+	"#006800",
+	"#6f5500",
+	"#0031a9",
+	"#721045",
+	"#005e8b",
+	"#000000",
+]
+background = "#ffffff"
+brights = [
+	"#f2f2f2",
+	"#d00000",
+	"#008900",
+	"#808000",
+	"#0000ff",
+	"#dd22dd",
+	"#008899",
+	"#595959",
+]
+compose_cursor = "#884900"
+cursor_bg = "#000000"
+cursor_border = "#000000"
+cursor_fg = "#ffffff"
+foreground = "#000000"
+selection_bg = "#dfa0f0"
+selection_fg = "#000000"
+split = "#3548cf"
+
+[colors.tab_bar]
+background = "#dfdfdf"
+inactive_tab_edge = "#c2c2c2"
+
+[colors.tab_bar.active_tab]
+bg_color = "#ffffff"
+fg_color = "#193668"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#c2c2c2"
+fg_color = "#000000"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#c2c2c2"
+fg_color = "#193668"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#ffffff"
+fg_color = "#193668"
+intensity = "Bold"
+
+[colors.tab_bar.new_tab]
+bg_color = "#dfdfdf"
+fg_color = "#000000"
+
+[metadata]
+aliases = []
+author = "miikanissi"
+name = "Modus Operandi"

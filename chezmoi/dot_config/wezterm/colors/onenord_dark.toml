@@ -1,0 +1,52 @@
+[colors]
+ansi = [
+	"#3B4252",
+	"#BF616A",
+	"#A3BE8C",
+	"#EBCB8B",
+	"#81A1C1",
+	"#B988B0",
+	"#88C0D0",
+	"#E5E9F0",
+]
+background = "#2E3440"
+brights = [
+	"#4C566A",
+	"#BF616A",
+	"#A3BE8C",
+	"#EBCB8B",
+	"#81A1C1",
+	"#B988B0",
+	"#8FBCBB",
+	"#ECEFF4",
+]
+cursor_bg = "#81A1C1"
+cursor_border = "#81A1C1"
+foreground = "#C8D0E0"
+selection_bg = "#3F4758"
+
+[colors.tab_bar]
+background = "#2E3440"
+
+[colors.tab_bar.active_tab]
+bg_color = "#353B49"
+fg_color = "#88C0D0"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#2E3440"
+fg_color = "#C8D0E0"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#2E3440"
+fg_color = "#88C0D0"
+
+[colors.tab_bar.new_tab]
+bg_color = "#2E3440"
+fg_color = "#C8D0E0"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#2E3440"
+fg_color = "#88C0D0"
+
+[metadata]
+name = "OneNord Dark"
