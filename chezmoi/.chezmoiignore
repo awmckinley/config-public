@@ -1,4 +1,5 @@
 .config/yazi/plugins/
+key.txt.age
 
 {{ if eq .chezmoi.os "linux" }}
 .init.d/darwin*
