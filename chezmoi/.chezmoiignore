@@ -1,5 +1,20 @@
 .config/yazi/plugins/
 
+{{ if eq .chezmoi.os "linux" }}
+.init.d/darwin*
+.local/bin/defaults-*
+.local/bin/ioreg-*
+.local/bin/is-dnd
+.local/bin/launchctl-*
+.local/bin/mic-volume
+.local/bin/open-await
+.local/bin/pkill-await
+.local/bin/quit-await
+.local/bin/setfile-*
+.local/bin/sleep-toggle
+.profile.d/darwin*
+{{ end }}
+
 {{ if eq .chezmoi.os "windows" }}
 .bash_logout
 .bash_profile
