@@ -17,6 +17,7 @@ _: {
     ./less.nix
     ./mcfly.nix
     ./mult.nix
+    ./nu.nix
     ./parallel.nix
     ./pv.nix
     ./pwsh.nix
