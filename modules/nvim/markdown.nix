@@ -18,11 +18,11 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      mdformat = final.callPackage ../packages/mdformat.nix { };
+      mdformat = final.callPackage ../../packages/mdformat.nix { };
       pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
         (pyfinal: pyprev: {
-          mdformat-obsidian = pyfinal.callPackage ../packages/mdformat-obsidian.nix { };
-          mdformat-wikilink = pyfinal.callPackage ../packages/mdformat-wikilink.nix { };
+          mdformat-obsidian = pyfinal.callPackage ../../packages/mdformat-obsidian.nix { };
+          mdformat-wikilink = pyfinal.callPackage ../../packages/mdformat-wikilink.nix { };
         })
       ];
     })
