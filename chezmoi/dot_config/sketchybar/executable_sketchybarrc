@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Configure SketchyBar.
+
+# Bar properties
+sketchybar --bar position=bottom height=40 blur_radius=30 color=0xff222222
+
+# Event: SKHD mode
+sketchybar --add event skhd_mode
+
+# Item: SKHD mode
+sketchybar \
+	--add item skhd_mode left \
+	--subscribe skhd_mode skhd_mode \
+	--set skhd_mode \
+	background.color=0x44ffffff \
+	background.corner_radius=5 \
+	background.height=20 \
+	background.drawing=off \
+	label='' \
+	script="${HOME}/.config/sketchybar/plugins/skhd_mode.sh"
+
+# Force all scripts to run the first time
+sketchybar --update
