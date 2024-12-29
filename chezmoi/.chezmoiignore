@@ -20,6 +20,7 @@
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
+.glzr/
 AppData/
 Documents/
 {{ end }}
