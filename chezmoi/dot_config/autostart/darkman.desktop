@@ -1,0 +1,5 @@
+[Desktop Entry]
+Exec=/run/current-system/sw/bin/darkman run
+Name=darkman
+OnlyShowIn=i3
+Type=Application

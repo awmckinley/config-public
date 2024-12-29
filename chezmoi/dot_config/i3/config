@@ -1,0 +1,33 @@
+# i3 config file (v4)
+
+# Launch sxhkd
+exec --no-startup-id sxhkd-wm i3
+
+# launch autostart
+exec dex --autostart --environment i3
+
+# Launch autotiling
+exec --no-startup-id autotiling --limit 2
+
+# Launch betterlockscreen
+exec --no-startup-id betterlockscreen -w dim
+
+# Launch dunst
+exec --no-startup-id dunst
+
+# Available modifiers: Mod1-Mod5, Shift, Control
+set $meh Mod1+Shift+Control
+set $med Mod1+Control
+set $hyper Mod1+Mod4+Shift+Control
+set $hyped Mod1+Mod4+Control
+
+# Title and bar font
+font pango:GeistMono Nerd Font 15px
+
+# Drag floating windows
+floating_modifier $meh
+
+# open i3bar
+bar {
+	status_command i3blocks
+}
