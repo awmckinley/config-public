@@ -1,0 +1,35 @@
+#!/usr/bin/env bash
+#
+# Mirror a site.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+domain="${1:-}"
+url="${2:-}"
+warc="${3:-}"
+
+if test "$domain" = '' || test "$url" = '' || test "$warc" = ''; then
+	echo "Usage: $(basename "$0") <domain> <url> <warc>"
+	exit
+fi
+
+wget \
+	--mirror \
+	--warc-file="$warc" \
+	--warc-cdx \
+	--page-requisites \
+	--html-extension \
+	--convert-links \
+	--execute robots=off \
+	--directory-prefix=. \
+	--span-hosts \
+	--domains="$domain" \
+	--user-agent='Mozilla/5.0 (Windows NT 6.1; WOW64; rv:64.0) Gecko/20100101 Firefox/64.0' \
+	--wait=10 \
+	--random-wait \
+	--no-check-certificate \
+	"$url"
