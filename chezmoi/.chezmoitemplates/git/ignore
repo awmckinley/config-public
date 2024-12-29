@@ -1,0 +1,13 @@
+*.swp
+*~
+.DS_Store
+.conform.*
+.direnv/
+.envrc
+.idea/
+.nova/
+.project
+.settings/
+.venv/
+.yarn/
+__pycache__/

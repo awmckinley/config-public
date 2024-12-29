@@ -1,5 +1,18 @@
+[core]
+	pager = delta
+	quotePath = false
+
 [credential "https://github.com"]
 	useHttpPath = true
+
+[delta]
+	line-numbers = true
+	navigate = true
+	side-by-side = true
+	tabs = 4
+
+[diff]
+	colorMoved = default
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -7,9 +20,24 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
+[include]
+	path = ~/.config/delta/ansi.gitconfig
+	path = ~/.config/delta/ansi256.gitconfig
+	path = ~/.config/delta/catppuccin.gitconfig
+
 [init]
 	defaultBranch = master
+	templateDir = {{ .gitDir }}/templates
+
+[interactive]
+	diffFilter = delta --color-only
+
+[merge]
+	conflictstyle = diff3
+
+[rerere]
+	enabled = true
 
 [user]
-	name = Adam McKinley
 	email = {{ .email }}
+	name = Adam McKinley

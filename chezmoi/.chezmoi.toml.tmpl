@@ -8,6 +8,11 @@ sourceDir = "{{ .chezmoi.sourceDir }}"
 
 [data]
     email = {{ $email | quote }}
+{{ if eq .chezmoi.os "windows" }}
+    gitDir = "~/AppData/Remote/Git"
+{{ else }}
+    gitDir = "~/.config/git"
+{{ end }}
 
 [diff]
     command = "delta"

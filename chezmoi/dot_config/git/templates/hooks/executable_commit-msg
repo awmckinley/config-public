@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#
+# Invoked by git-commit(1) and git-merge(1).
+
+# arguments
+file="$1"
+
+# verify message
+committed \
+	--config="${XDG_CONFIG_HOME}/committed.toml" \
+	--fixup \
+	--wip \
+	--commit-file="$file"
