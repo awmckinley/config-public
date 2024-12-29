@@ -1,0 +1,36 @@
+_: {
+  imports = [
+    ./ast-grep.nix
+    ./bat.nix
+    ./choose.nix
+    ./coreutils.nix
+    ./direnv.nix
+    ./dos2unix.nix
+    ./expect.nix
+    ./eza.nix
+    ./fd.nix
+    ./fzf.nix
+    ./gum.nix
+    ./hexyl.nix
+    ./ijq.nix
+    ./just.nix
+    ./less.nix
+    ./mcfly.nix
+    ./mult.nix
+    ./parallel.nix
+    ./pv.nix
+    ./pwsh.nix
+    ./rg.nix
+    ./sd.nix
+    ./starship.nix
+    ./trash.nix
+    ./tree.nix
+    ./vhs.nix
+    ./vivid.nix
+    ./watch.nix
+    ./watchexec.nix
+    ./yazi.nix
+    ./zoxide.nix
+    ./zsh.nix
+  ];
+}
