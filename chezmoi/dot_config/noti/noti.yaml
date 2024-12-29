@@ -1,0 +1,4 @@
+---
+say:
+  # List voices: say -v '?'
+  voice: Samantha (Enhanced)
