@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#
+# Is the system in dark mode?
+
+true

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Is this machine connected to a local network?
+
+if networksetup -getnetworkserviceenabled Wi-Fi >/dev/null; then
+	if ipconfig getifaddr en0 >/dev/null; then
+		exit 0
+	else
+		# no IP
+		exit 1
+	fi
+else
+	# wi-fi disabled
+	exit 1
+fi

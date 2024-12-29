@@ -1,0 +1,5 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   template "bin/test-lan_darwin" . -}}
+{{- else if .chezmoi.os "linux" -}}
+{{-   template "bin/test-lan_linux" . -}}
+{{- end -}}

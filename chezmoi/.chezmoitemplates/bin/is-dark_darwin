@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+#
+# Is the system in dark mode?
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+test "$(defaults read -g AppleInterfaceStyle 2>/dev/null)" = Dark

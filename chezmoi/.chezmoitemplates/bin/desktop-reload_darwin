@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+#
+# Reload configs.
+
+list=''
+
+if pgrep -x AeroSpace >/dev/null; then
+	echo 'AeroSpace: reload-config'
+	aerospace reload-config
+	list="${list} AeroSpace"
+fi
+
+if pgrep -x borders >/dev/null; then
+	echo 'JankyBorders: bordersrc'
+	"${HOME}/.config/borders/bordersrc" || true
+	list="${list} JankyBorders"
+fi
+
+if pgrep -x sketchybar >/dev/null; then
+	echo 'SketchyBar: reload'
+	sketchybar --reload
+	list="${list} sketchybar"
+fi
+
+if pgrep -ax skhd >/dev/null; then
+	echo 'skhd: restart service'
+	# --reload ignores include files, so we must restart
+	launchctl kickstart -k "gui/$(id -u)/org.nixos.skhd"
+	list="${list} skhd"
+fi
+
+if pgrep -x yabai >/dev/null; then
+	echo 'yabai: yabairc'
+	"${HOME}/.config/yabai/yabairc" || true
+	list="${list} yabai"
+fi
+
+echo 'done'
+noti -bm "desktop reloaded:${list}" &
+say 'desktop reloaded' &

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Is this machine connected to a local network?
+
+if nmcli dev status | grep -q 'wifi      connected'; then
+	if ip addr show wlp4s0 | grep -q 'inet [0-9]\+'; then
+		exit 0
+	else
+		# no IP
+		exit 1
+	fi
+else
+	# wi-fi disabled
+	exit 1
+fi
