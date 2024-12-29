@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+#
+# Call this on an unopenable file.
+
+# Fixes "...is used by macOS and cannot be opened"
+SetFile -c "" -t "" "$1"

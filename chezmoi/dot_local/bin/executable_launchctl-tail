@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Tail a launch agent.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+service="${1:-}"
+
+# validate arguments
+if test "$service" = ''; then
+	echo "Usage: $(basename "$0") <service>" >&2
+	exit 1
+fi
+
+echo "Exec: launchctl start ${service}"
+sudo launchctl debug "gui/${UID}/${service}" --stdout --stderr

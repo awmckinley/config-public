@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+#
+# Launch an app and sleep until it's launched.
+
+set -o errexit
+set -o pipefail
+
+# name arguments
+app="${1:-}"
+
+# validate arguments
+if test "$app" = ''; then
+	echo "Usage: $(basename "$0") <app>"
+	exit
+fi
+
+if test -d "/Applications/${app}.app"; then
+	if test "$(osascript -e "tell application \"System Events\" to (name of processes) contains \"${app}\"")" = 'false'; then
+		open -a "$app"
+	fi
+	while test "$(osascript -e "tell application \"System Events\" to (name of processes) contains \"${app}\"")" = 'false'; do
+		sleep 1
+	done
+fi

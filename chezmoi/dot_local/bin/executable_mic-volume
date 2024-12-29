@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+set -o nounset
+set -o errexit
+set -o pipefail
+
+osascript -e "set volume input volume $1"

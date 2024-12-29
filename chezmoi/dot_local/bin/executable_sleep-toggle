@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Toggle "Caffeine" mode from the terminal.
+
+function sleep-enabled {
+    [[ "$(pmset -g live | grep 'SleepDisabled')" = *"0"* ]]
+}
+
+if sleep-enabled; then
+    sudo pmset -b disablesleep 1
+    sudo pmset -b sleep 0
+    echo 'Sleep is disabled (incl. when lid is closed on battery)'
+else
+    sudo pmset -b disablesleep 0
+    sudo pmset -b sleep 5
+    echo 'Sleep is enabled (all times)'
+fi

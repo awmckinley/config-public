@@ -1,0 +1,5 @@
+#!/usr/bin/bash
+#
+# Get the serial number.
+
+ioreg -l | grep IOPlatformSerialNumber | gsed -e 's/.\+"\([A-Z0-9]\+\)"/\1/'

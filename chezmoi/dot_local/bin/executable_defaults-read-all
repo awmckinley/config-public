@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+#
+# Read all defaults.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+defaults domains | tr ',' '\n' | while IFS= read -r i; do
+	echo "******** $i ********"
+	echo
+	defaults read "$i"
+	echo
+done

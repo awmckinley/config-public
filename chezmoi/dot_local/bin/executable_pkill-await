@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Quit an app and sleep until it's quit.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+app="${1:-}"
+
+# validate arguments
+if test "$app" = ''; then
+	echo "Usage: $(basename "$0") <app>"
+	exit
+fi
+
+while test "$(osascript -e "tell application \"System Events\" to (name of processes) contains \"${app}\"")" = 'true'; do
+	sudo pkill "$app" || true
+	sleep 1
+done
