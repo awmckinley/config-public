@@ -1,12 +1,14 @@
 .config/yazi/plugins/
 
 {{ if eq .chezmoi.os "windows" }}
-.config/git/
-.config/nushell/
 .bash_logout
 .bash_profile
 .bashrc
+.config/git/
+.config/nushell/
 .init.d/
+.local/bin/
+.local/share/zsh/
 .profile
 .profile.d/
 .zlogin
@@ -18,4 +20,5 @@
 
 {{ if ne .chezmoi.os "windows" }}
 AppData/
+Documents/
 {{ end }}
