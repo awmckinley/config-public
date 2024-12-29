@@ -5,6 +5,7 @@
 .bash_profile
 .bashrc
 .config/git/
+.config/lazygit/
 .config/nushell/
 .init.d/
 .local/bin/
