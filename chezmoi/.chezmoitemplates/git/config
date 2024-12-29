@@ -20,11 +20,6 @@
 	required = true
 	smudge = git-lfs smudge -- %f
 
-[include]
-	path = ~/.config/delta/ansi.gitconfig
-	path = ~/.config/delta/ansi256.gitconfig
-	path = ~/.config/delta/catppuccin.gitconfig
-
 [init]
 	defaultBranch = master
 	templateDir = {{ .gitDir }}/templates
@@ -41,3 +36,7 @@
 [user]
 	email = {{ .email }}
 	name = Adam McKinley
+
+{{ includeTemplate "delta/ansi.gitconfig" }}
+{{ includeTemplate "delta/ansi256.gitconfig" }}
+{{ includeTemplate "delta/catppuccin.gitconfig" }}

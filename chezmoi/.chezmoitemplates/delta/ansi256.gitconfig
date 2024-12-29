@@ -1,0 +1,3 @@
+[delta "ansi256"]
+	dark = true
+	syntax-theme = "base16-256"
