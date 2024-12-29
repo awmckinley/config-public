@@ -60,6 +60,14 @@ properties:
         id: dalance.procs
         source: winget
 
+    - id: dandavison.delta
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install delta
+      settings:
+        id: dandavison.delta
+        source: winget
+
     - id: equalsraf.win32yank
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
