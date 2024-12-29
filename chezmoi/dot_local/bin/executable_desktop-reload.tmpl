@@ -1,5 +1,5 @@
 {{- if eq .chezmoi.os "darwin" -}}
 {{-   template "bin/desktop-reload_darwin" . -}}
-{{- else if .chezmoi.os "linux" -}}
+{{- else if eq .chezmoi.os "linux" -}}
 {{-   template "bin/desktop-reload_linux" . -}}
 {{- end -}}
