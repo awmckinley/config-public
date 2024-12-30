@@ -1,2 +1,6 @@
+---
 gui:
+  # disable mouse
   mouseEvents: false
+# disable prompt when exiting Neovim
+promptToReturnFromSubprocess: false
