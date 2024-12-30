@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Find unsubscribe link and open it.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+# read stdin
+msg="$(cat)"
+
+# which part is text/html?
+part="$(echo "${msg}" | mshow -t - | grep 'text/html' | cut -d':' -f1 | xargs)"
+echo "text/html part: ${part}" >&2
+
+# find unsubscribe URL
+href="$(echo "${msg}" | mshow -O- "${part}" | xmllint --html --nowarning --recover --xpath 'string(//a[contains(text(), "nsubscribe")]/@href)' -)"
+echo "unsubscribe: ${href}" >&2
+
+# open the URL
+if test -n "${href}"; then
+	open -a /Applications/Min.app "${href}"
+else
+	# wait 60 seconds
+	sleep 60
+fi

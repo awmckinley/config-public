@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Generate an RSA SSH keypair (for clients/servers incompatible with ED25519).
+
+# Enable strict mode
+set -o nounset
+set -o errexit
+set -o pipefail
+
+bits='4096'
+comment="$1"
+ssh="${HOME}/.ssh"
+
+if [ "${comment}" = '' ]; then
+    comment="$(users)@$(hostname -s)"
+    keyfile="${ssh}/id_rsa"
+else
+    keyfile="${ssh}/${comment}_id_rsa"
+fi
+
+mkdir -p "${ssh}"
+ssh-keygen -b "${bits}" -C "${comment}" -f "${keyfile}" -t rsa

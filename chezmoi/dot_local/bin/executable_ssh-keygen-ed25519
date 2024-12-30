@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+#
+# Generate an ED25519 SSH keypair.
+
+# Enable strict mode
+set -o nounset
+set -o errexit
+set -o pipefail
+
+comment="$1"
+rounds='100'
+ssh="${HOME}/.ssh"
+
+if [ "${comment}" = '' ]; then
+    comment="$(users)@$(hostname -s)"
+    keyfile="${ssh}/id_ed25519"
+else
+    keyfile="${ssh}/${comment}_id_ed25519"
+fi
+
+mkdir -p "${ssh}"
+ssh-keygen -a "${rounds}" -C "${comment}" -f "${keyfile}" -t ed25519

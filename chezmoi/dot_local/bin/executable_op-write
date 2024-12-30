@@ -1,0 +1,27 @@
+#!/usr/bin/env bash
+#
+# Write 1Password value to file.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+url="${1:-}"
+file="${2:-}"
+
+# validate arguments
+if test -z "${url}" || test -z "${file}"; then
+	echo "Usage: $(basename "$0") <url> <file>" >&2
+	exit 1
+fi
+
+# write if does not exist
+if ! test -f "${file}"; then
+	mkdir -p "$(dirname "${file}")"
+	op read "${url}" >"${file}"
+fi
+
+# change permissions
+chmod 700 "$(dirname "${file}")"
+chmod 400 "${file}"
