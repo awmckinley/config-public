@@ -1,0 +1,45 @@
+#!/usr/bin/env bash
+#
+# Destructive sync.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+src="${1:-}"
+dest="${2:-}"
+
+# validate arguments
+if test -z "${src}" || test -z "${dest}"; then
+	echo "Usage: $(basename "$0") <src> <dest>" >&2
+	exit 1
+fi
+
+/run/current-system/sw/bin/rsync \
+	--archive \
+	--delete \
+	--delete-before \
+	--delete-excluded \
+	--iconv=utf-8-mac,utf-8 \
+	--itemize-changes \
+	--no-perms \
+	--no-times \
+	--progress \
+	--protect-args \
+	--rsh='ssh -p 22' \
+	--size-only \
+	--stats \
+	--verbose \
+	--exclude='._*' \
+	--exclude='.AppleDB' \
+	--exclude='.deletedByTMM' \
+	--exclude='.DS_Store' \
+	--exclude='.recycle' \
+	--exclude='.TemporaryItems' \
+	--exclude='.Trash-1000' \
+	--exclude='Thumbs.db' \
+	--exclude='/lost+found' \
+	"${src}" \
+	"${dest}"
