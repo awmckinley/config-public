@@ -9,6 +9,7 @@ _: {
     ./macfamilytree.nix
     ./monodraw.nix
     ./noteplan.nix
+    ./obsidian.nix
     ./paprika.nix
     ./zathura.nix
   ];

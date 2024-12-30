@@ -9,9 +9,11 @@ _: {
     ./disk
     ./doc
     ./game
+    ./gen
     ./glyph
     ./img
     ./input
+    ./mail
     ./media
     ./net
     ./nvim
@@ -21,6 +23,8 @@ _: {
     ./svc
     ./term
     ./todo
+    ./vc
+    ./vdir
     ./virt
     ./web
     ./wm

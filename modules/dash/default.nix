@@ -6,5 +6,6 @@ _: {
     ./powertop.nix
     ./procs.nix
     ./quitall.nix
+    ./wtfutil.nix
   ];
 }

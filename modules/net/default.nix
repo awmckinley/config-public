@@ -5,6 +5,8 @@ _: {
     ./jump-desktop.nix
     ./nmap.nix
     ./prettyping.nix
+    ./rclone.nix
+    ./rsync.nix
     ./tailscale.nix
     ./transmit.nix
     ./wakeonlan.nix

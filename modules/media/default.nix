@@ -2,6 +2,7 @@ _: {
   imports = [
     ./doppler.nix
     ./ffmpeg.nix
+    ./handbrake.nix
     ./iina.nix
     ./meta.nix
     ./mkvtoolnix.nix
