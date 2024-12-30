@@ -1,0 +1,178 @@
+# NEWS
+
+# news updates
+news.version=3.1.0
+
+# FILES
+
+# use XDG directories
+data.location=$XDG_DATA_HOME/task
+hooks.location=$XDG_CONFIG_HOME/task/hooks
+
+# TERMINAL
+
+# margin before column headings
+reserved.lines=4
+
+# MISCELLANEOUS
+
+# hide: new-id, filter, override
+verbose=blank,header,footnote,label,new-uuid,news,affected,edit,special,project,sync,context,recur,default
+
+# ask for confirmation
+confirmation=1
+
+# spacing
+indent.annotation=4
+indent.report=0
+row.padding=1
+column.padding=1
+
+# confirm multiple changes
+bulk=2
+
+# disable urgency nag
+nag=
+
+# show completed projects
+list.all.projects=1
+summary.all.projects=1
+
+# show completed tags
+complete.all.tags=1
+list.all.tags=1
+
+# always show columns
+print.empty.columns=1
+
+# case-insensitive search
+search.case.sensitive=0
+
+# disable recurrence by default
+recurrence=0
+
+# CALENDAR
+
+# what day a week starts on
+weekstart=Sunday
+
+# display due task details
+calendar.details=full
+
+# display holidays
+calendar.holidays=sparse
+
+# HOLIDAYS
+
+include holidays
+
+# COLOR CONTROLS
+
+# URGENCY
+
+# newer tasks are more urgent
+# older does not imply forgotten
+urgency.age.coefficient=-2.0
+
+# suggested by 00sapo/TWDensity
+urgency.blocking.coefficient=1
+urgency.blocked.coefficient=0
+urgency.inherit=1
+
+# suggested by Samuel Chan
+urgency.annotations.coefficient=0
+urgency.project.coefficient=0
+urgency.tags.coefficient=0
+urgency.uda.effort.S.coefficient=1.5
+urgency.uda.effort.M.coefficient=1.1
+urgency.uda.effort.L.coefficient=1
+urgency.uda.effort.XL.coefficient=0
+urgency.uda.effort.XXL.coefficient=-0.2
+
+# DEFAULTS
+
+# default to next command
+default.command=next
+
+# REPORTS
+
+# bucket list
+report.custom.bucket.description=custom: bucket list
+report.custom.bucket.columns=uuid.short,id,description.count
+report.custom.bucket.context=0
+report.custom.bucket.sort=description+
+report.custom.bucket.filter=limit:page status:waiting wait>2100-01-01
+report.custom.bucket.dateformat=Y-M-D
+
+# dashboard
+report.custom.dashboard.description=custom: dashboard
+report.custom.dashboard.columns=project,tags,scheduled,description.count
+report.custom.dashboard.context=0
+report.custom.dashboard.sort=urgency-
+report.custom.dashboard.filter=limit:7 status:pending -BLOCKED
+report.custom.dashboard.dateformat=Y-M-D
+
+# tasks w/o project
+report.custom.step1.description=custom: needs project
+report.custom.step1.columns=uuid.short,id,status,tags,description.count
+report.custom.step1.context=0
+report.custom.step1.sort=description+
+report.custom.step1.filter=limit:page project: (status:pending or status:recurring or status:waiting) (wait: or wait<2100-01-01)
+report.custom.step1.dateformat=Y-M-D
+
+# tasks w/o tags
+report.custom.step2.description=custom: needs tag
+report.custom.step2.columns=uuid.short,id,status,project,description.count
+report.custom.step2.context=0
+report.custom.step2.sort=description+
+report.custom.step2.filter=limit:page tags: (status:pending or status:recurring or status:waiting) (wait: or wait<2100-01-01)
+report.custom.step2.dateformat=Y-M-D
+
+# tasks w/o priority
+report.custom.step3.description=custom: needs priority
+report.custom.step3.columns=uuid.short,id,status,project,tags,description.count
+report.custom.step3.context=0
+report.custom.step3.sort=description+
+report.custom.step3.filter=limit:page priority: (status:pending or status:recurring or status:waiting) (wait: or wait<2100-01-01)
+report.custom.step3.dateformat=Y-M-D
+
+# tasks w/o effort
+report.custom.step4.description=custom: needs effort
+report.custom.step4.columns=uuid.short,id,status,project,tags,description.count
+report.custom.step4.context=0
+report.custom.step4.sort=description+
+report.custom.step4.filter=effort: limit:page (status:pending or status:recurring or status:waiting) (wait: or wait<2100-01-01)
+report.custom.step4.dateformat=Y-M-D
+
+# tickler list
+report.custom.tickler.description=custom: tickler list
+report.custom.tickler.columns=uuid.short,id,wait,description.count
+report.custom.tickler.context=0
+report.custom.tickler.sort=description+
+report.custom.tickler.filter=limit:page status:waiting wait<2100-01-01
+report.custom.tickler.dateformat=Y-M-D
+
+# USER DEFINED ATTRIBUTES
+
+# low priority is lower than default
+uda.priority.values=H,M,,L
+
+# effort
+uda.effort.type=string
+uda.effort.label=Effort
+uda.effort.values=S,M,L,XL,XXL
+
+# CONTEXT
+
+# use env to set context
+context=$TASK_CONTEXT
+
+# PRIVATE
+
+# private config
+include taskrc.private
+
+# LOCAL
+
+# local config
+include taskrc.local

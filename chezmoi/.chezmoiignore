@@ -23,6 +23,7 @@ key.txt.age
 .config/git/
 .config/lazygit/
 .config/nushell/
+.config/task/
 .init.d/
 .local/bin/
 .local/share/zsh/

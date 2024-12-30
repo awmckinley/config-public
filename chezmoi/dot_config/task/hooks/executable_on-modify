@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+#
+# Runs when task is modified.
+#
+# See: <https://github.com/GothenburgBitFactory/taskwarrior/blob/develop/scripts/hooks/on-modify>
+
+# usage: tagged exec "${modified_task}"
+function tagged() {
+	test "$(echo "$2" | jq ".tags | index(\"$1\") != null")" = 'true'
+}
+
+# read JSON
+read original_task
+read modified_task
+
+# accept this JSON
+echo "${modified_task}"

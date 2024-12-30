@@ -1,0 +1,81 @@
+#!/usr/bin/env bash
+#
+# Runs when task is added.
+#
+# See: <https://github.com/GothenburgBitFactory/taskwarrior/blob/develop/scripts/hooks/on-add>
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+# read JSON
+read new_task
+
+# read description
+function description() {
+	echo "${new_task}" | jq -cr .description
+}
+
+# read effort
+function effort() {
+	echo "${new_task}" | jq -c .effort
+}
+
+# read priority
+function priority() {
+	echo "${new_task}" | jq -c .priority
+}
+
+# read project
+function project() {
+	echo "${new_task}" | jq -c .project
+}
+
+# read tags
+function tags() {
+	echo "${new_task}" | jq -c .tags
+}
+
+# read wait
+function wait() {
+	echo "${new_task}" | jq -c .wait
+}
+
+# skip someday/maybe
+if test "$(wait)" = '"99991230T060000Z"'; then
+	echo "${new_task}"
+	exit 0
+fi
+
+# NOTE: xargs to trim whitespace
+
+# require project
+while (test "$(project)" = null || test "$(project)" = '""'); do
+	project="$(gum input --header="Project: ($(description))" --placeholder='Area.System' | xargs)"
+	new_task="$(echo "${new_task}" | jq -c ".project=\"${project}\"")"
+done
+
+# require tags
+choices=(admin chat code cycle docs email errand hear office phone plan read search shop system test write)
+while (test "$(tags)" = null || test "$(tags)" = '[]' || test "$(tags)" = '[""]'); do
+	tags="$(gum choose ${choices[@]} --header="Tags: ($(description))")"
+	new_task="$(echo "${new_task}" | jq -c ".tags=[\"${tags}\"]")"
+done
+
+# require priority
+choices=(L M H)
+while (test "$(priority)" = null || test "$(priority)" = '""'); do
+	priority="$(gum choose ${choices[@]} --header="Priority: ($(description))")"
+	new_task="$(echo "${new_task}" | jq -c ".priority=\"${priority}\"")"
+done
+
+# require effort
+choices=(S M L XL XXL)
+while (test "$(effort)" = null || test "$(effort)" = '""'); do
+	effort="$(gum choose ${choices[@]} --header="Effort: ($(description))")"
+	new_task="$(echo "${new_task}" | jq -c ".effort=\"${effort}\"")"
+done
+
+# output JSON
+echo "${new_task}"
