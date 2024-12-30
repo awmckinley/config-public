@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Idempotently login to Google Cloud.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+if test "$(gcloud auth print-access-token | wc -c)" -lt 144; then
+	gcloud auth login
+fi

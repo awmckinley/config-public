@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Open HTTP (80).
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+rule_name='default-allow-http'
+
+if [[ "$(gcloud compute firewall-rules list)" != *"$rule_name"* ]]; then
+	gcloud compute firewall-rules create "$rule_name" \
+		--allow='tcp:80' \
+		--description='Allow HTTP' \
+		--direction=INGRESS \
+		--network=default \
+		--priority=65534 \
+		--source-ranges='0.0.0.0/0'
+fi

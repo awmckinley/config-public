@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+#
+# Search for a project.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+search="${1:-}"
+
+if test "$search" = ''; then
+	echo "Usage: $(basename "$0") <search>"
+	exit
+fi
+
+gcloud projects list |
+	grep "$search" |
+	awk '{ print $1 }'

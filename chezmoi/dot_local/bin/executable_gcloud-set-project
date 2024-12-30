@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+#
+# Idempotently set the project.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+project="${1:-}"
+
+if test "$project" = ''; then
+	echo "Usage: $(basename "$0") <project>"
+	exit
+fi
+
+if test "$(gcloud config get-value core/project)" != "$project"; then
+	echo "Set Cloud SDK project to $project"
+	gcloud config set core/project "$project"
+fi
