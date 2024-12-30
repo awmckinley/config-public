@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+#
+# Mirror a repository across remotes.
+# WARN: The destination will be overwritten.
+
+set -o errexit # exit if any command fails
+set -o nounset # prevent using an undefined variable
+IFS=$'\n\t'
+
+# name arguments
+from="${1:-}"
+to="${2:-}"
+
+# ensure arguments are provided
+if [ "$from" = '' ] || [ "$to" = '' ]; then
+	echo "Usage: $(basename "$0") <from> <to>"
+	exit
+fi
+
+# Where mirrors live on local machine
+mirror="${HOME}/.git-mirror"
+mkdir -p "$mirror"
+
+# Use the last 2 segments of the URL, without .git
+repo="$(echo "$from" | rg -o '^.+/([^/]+/[^/]+)?$' -r '$1' | sd '\.git' '')"
+
+# Use the last 2 segments of the URL, without .git
+if [ "$repo" = '' ]; then
+	repo="$(echo "$from" | rg -o '^.+:([^:]+)?$' -r '$1' | sd '\.git' '')"
+fi
+
+# Define local path
+local="${mirror}/${repo}.git"
+
+# Init bare repo
+if [ ! -d "$local" ]; then
+	printf "\n=== Init ${repo} ===\n"
+	mkdir -p "$(dirname "$local")"
+	git init --bare "$local"
+fi
+
+# Jump in
+pushd "$local"
+
+# Configure local
+printf "\n=== Setup ${repo} ===\n"
+git config remote.origin.url "$from"
+git config remote.origin.pushurl "$to"
+git config remote.origin.mirror false
+git config --replace-all remote.origin.fetch '+refs/heads/*:refs/heads/*'
+git config --add remote.origin.fetch '+refs/notes/*:refs/notes/*'
+git config --add remote.origin.fetch '+refs/pull/*:refs/heads/pull/*'
+git config --add remote.origin.fetch '+refs/tags/*:refs/tags/*'
+git ls-remote
+
+# Fetch all (no prune)
+printf "\n=== Fetch ${from} ===\n"
+git fetch --all
+
+# Push all (no mirror)
+printf "\n=== Push ${to} ===\n"
+git push --all origin --no-verify
+git push --tags origin --no-verify

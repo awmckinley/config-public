@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+#
+# Stage, commit, pull, and push.
+
+set -o errexit  # exit if any command fails
+set -o nounset  # prevent using an undefined variable
+set -o pipefail # pipelines fail early
+IFS=$'\n\t'
+
+# arguments
+local="${1:-}"
+remote="${2:-}"
+msg="${3:-changes}"
+
+# ensure arguments are provided
+if test "$local" = '' || test "$remote" = ''; then
+	echo "Usage: $(basename "$0") <local> <remote>" >&2
+	exit 1
+fi
+
+project="$(basename "$(realpath "$local")")"
+
+cd "$local"
+
+if test "$(git status --porcelain | rg '^.[?DM]')" != ""; then
+	printf "\e[0;34m%s\e[0m: Stage local changes\n" "$project"
+	git add -A
+fi
+
+if ! git diff --quiet --cached; then
+	printf "\e[0;34m%s\e[0m: Commit local changes\n" "$project"
+	git commit -m "$msg"
+fi
+
+printf "\e[0;34m%s\e[0m: Pull remote changes to local\n" "$project"
+git pull --rebase "$remote"
+
+if test "$(git log '@{u}..')" != ""; then
+	printf "\e[0;34m%s\e[0m: Push local changes to remote\n" "$project"
+	git push "$remote"
+fi

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+#
+# Reset mode changes.
+
+set -o nounset
+set -o errexit
+set -o pipefail
+
+git diff -p -R --no-color | grep -E "^(diff|(old|new) mode)" --color=never | git apply

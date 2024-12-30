@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+#
+# Run a sd script on a Git remote URL.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+name="${1:-}"
+find="${2:-}"
+rwith="${3:-}"
+
+# validate arguments
+if test -z "${name}" || test -z "${find}" || test -z "${rwith}"; then
+	echo "Usage: $(basename "$0") <name> <find> <replace-with>" >&2
+	exit 1
+fi
+
+before="$(git remote get-url "${name}")"
+echo "before: ${before}"
+
+after="$(echo "${before}" | sd "${find}" "${rwith}")"
+echo "after: ${after}"
+
+git remote set-url "${name}" "${after}"
