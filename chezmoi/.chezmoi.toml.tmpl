@@ -1,3 +1,4 @@
+{{ $decrypt := promptBoolOnce . "decrypt" "Decrypt private key" false -}}
 {{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
 
 encryption = "age"
@@ -9,6 +10,7 @@ sourceDir = "{{ .chezmoi.sourceDir }}"
     recipient = "age1txxssnd059spn8yrjpyv394gn37e0l065yjutkxhrpe45rnk254qcz998r"
 
 [data]
+    decrypt = {{ $decrypt }}
     email = {{ $email | quote }}
 {{ if eq .chezmoi.os "windows" }}
     gitDir = "~/AppData/Remote/Git"
