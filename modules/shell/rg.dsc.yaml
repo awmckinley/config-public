@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: BurntSushi.ripgrep.MSVC
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install ripgrep
+      settings:
+        id: BurntSushi.ripgrep.MSVC
+        source: winget

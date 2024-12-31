@@ -1,0 +1,15 @@
+{{ if eq .chezmoi.os "windows" }}
+
+function Install-Configuration {
+	param (
+		$File
+	)
+
+	winget configure --file {{ .chezmoi.sourceDir }}\..\$File --accept-configuration-agreements
+}
+
+Install-Configuration -File modules\disk\dua.dsc.yaml
+Install-Configuration -File modules\shell\rg.dsc.yaml
+Install-Configuration -File modules\shell\zoxide.dsc.yaml
+
+{{ end }}
