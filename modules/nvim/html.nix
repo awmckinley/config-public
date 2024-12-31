@@ -26,7 +26,7 @@
 
   nixpkgs.overlays = [
     (final: prev: {
-      superhtml-bin = final.callPackage ../packages/superhtml-bin.nix { };
+      superhtml-bin = final.callPackage ../../packages/superhtml-bin.nix { };
     })
   ];
 }
