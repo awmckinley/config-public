@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: dalance.procs
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install procs
+      settings:
+        id: dalance.procs
+        source: winget

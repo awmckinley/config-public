@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: Kubernetes.kubectl
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install kubectl
+      settings:
+        id: Kubernetes.kubectl
+        source: winget

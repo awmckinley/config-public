@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    - id: Microsoft.PowerShell
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install PowerShell
+      settings:
+        id: Microsoft.PowerShell
+        source: winget
+
+    - id: PowerShellExecutionPolicy
+      resource: ComputerManagementDsc/PowerShellExecutionPolicy
+      directives:
+        description: Configure PowerShell execution policy for the current user
+      settings:
+        ExecutionPolicy: Unrestricted
+        ExecutionPolicyScope: CurrentUser
