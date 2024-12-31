@@ -2,6 +2,21 @@
 	pager = delta
 	quotePath = false
 
+[credential]
+{{ if eq .chezmoi.os "windows" }}
+	credentialStore = wincredman
+{{ else if eq .chezmoi.os "darwin" }}
+	credentialStore = keychain
+	helper = {{ lookPath "git-credential-manager" }}
+{{ else }}
+	cacheOptions = --timeout 900
+	credentialStore = cache
+	helper = {{ lookPath "git-credential-manager" }}
+{{ end }}
+
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+
 [credential "https://github.com"]
 	useHttpPath = true
 
