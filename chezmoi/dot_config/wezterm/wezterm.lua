@@ -113,7 +113,7 @@ config.exit_behavior = "Close"
 
 -- fonts
 config.font = wezterm.font({
-	family = "Berkeley Mono",
+	family = "TX-02",
 	harfbuzz_features = {},
 })
 if is_darwin then
