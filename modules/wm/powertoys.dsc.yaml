@@ -1,0 +1,143 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    - id: Microsoft.PowerToys
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install PowerToys
+      settings:
+        id: Microsoft.PowerToys
+        source: winget
+
+    - id: PowerToysConfigure
+      resource: Microsoft.PowerToys.Configure/PowerToysConfigure
+      dependsOn:
+        - Microsoft.PowerToys
+      directives:
+        description: Configure PowerToys
+      settings:
+        AdvancedPaste:
+          Enabled: false
+        AlwaysOnTop:
+          Enabled: false
+        Awake:
+          Enabled: true
+        ColorPicker:
+          Enabled: false
+          ActivationShortcut: "Win+Shift+C"
+          ActivationAction: "OpenColorPickerAndThenEditor"
+        CropAndLock:
+          Enabled: false
+        EnvironmentVariables:
+          Enabled: false
+          LaunchAdministrator: false
+        FancyZones:
+          Enabled: false
+          FancyzonesEditorHotkey: "Win+Shift+%"
+          FancyzonesShiftDrag: false
+          FancyzonesMouseSwitch: false
+          FancyzonesMouseMiddleClickSpanningMultipleZones: false
+          FancyzonesOverrideSnapHotkeys: false
+          FancyzonesMoveWindowsAcrossMonitors: false
+          FancyzonesMoveWindowsBasedOnPosition: false
+          FancyzonesDisplayOrWorkAreaChangeMoveWindows: false
+          FancyzonesZoneSetChangeMoveWindows: false
+          FancyzonesAppLastZoneMoveWindows: false
+          FancyzonesOpenWindowOnActiveMonitor: false
+          FancyzonesRestoreSize: false
+          FancyzonesQuickLayoutSwitch: false
+          FancyzonesFlashZonesOnQuickSwitch: false
+          UseCursorposEditorStartupscreen: false
+          FancyzonesShowOnAllMonitors: false
+          FancyzonesSpanZonesAcrossMonitors: false
+          FancyzonesMakeDraggedWindowTransparent: false
+          FancyzonesAllowChildWindowSnap: false
+          FancyzonesDisableRoundCornersOnSnap: false
+          FancyzonesHighlightOpacity: 30
+          FancyzonesWindowSwitching: false
+          FancyzonesExcludedApps: ""
+          FancyzonesShowZoneNumber: false
+        FileLocksmith:
+          Enabled: false
+        FindMyMouse:
+          Enabled: false
+        Hosts:
+          Enabled: false
+        ImageResizer:
+          Enabled: false
+        KeyboardManager:
+          Enabled: false
+        MeasureTool:
+          Enabled: false
+        MouseHighlighter:
+          Enabled: false
+        MouseJump:
+          Enabled: false
+        MousePointerCrosshairs:
+          Enabled: false
+        MouseWithoutBorders:
+          Enabled: false
+        Peek:
+          Enabled: false
+        PowerAccent:
+          Enabled: false
+        PowerLauncher:
+          Enabled: false
+          OpenPowerLauncher: "Win+R"
+          Plugins:
+            - Name: "Calculator"
+              Disabled: true
+            - Name: "Folder"
+              Disabled: true
+            - Name: "History"
+              Disabled: true
+            - Name: "Windows Search"
+              Disabled: true
+            - Name: "OneNote"
+              Disabled: true
+            - Name: "PowerToys"
+              Disabled: true
+            - Name: "Program"
+              Disabled: true
+              ActionKeyword: "."
+              IsGlobal: false
+            - Name: "Registry Plugin"
+              Disabled: true
+            - Name: "Service"
+              Disabled: true
+            - Name: "Shell"
+              Disabled: true
+            - Name: "Windows System Commands"
+              Disabled: true
+            - Name: "Time and Date"
+              Disabled: true
+            - Name: "Unit Converter"
+              Disabled: true
+            - Name: "URI Handler"
+              Disabled: true
+            - Name: "Value Generator"
+              Disabled: true
+            - Name: "Visual Studio Code Workspaces"
+              Disabled: true
+            - Name: "Web Search"
+              Disabled: true
+            - Name: "Windows settings"
+              Disabled: true
+            - Name: "Windows Terminal"
+              Disabled: true
+            - Name: "Window Walker"
+              Disabled: true
+        PowerOcr:
+          Enabled: false
+        PowerRename:
+          Enabled: false
+        RegistryPreview:
+          Enabled: false
+        ShortcutGuide:
+          Enabled: false
+          OpenShortcutGuide: "Win+Shift+?"
+        VideoConference:
+          Enabled: false

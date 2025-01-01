@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: tibbo.ioninja
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install IO Ninja
+      settings:
+        id: tibbo.ioninja
+        source: winget

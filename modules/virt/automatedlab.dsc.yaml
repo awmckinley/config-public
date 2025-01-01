@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # replaces: MSLab
+    - id: AutomatedLab.AutomatedLab
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install AutomatedLab
+      settings:
+        id: AutomatedLab.AutomatedLab
+        source: winget

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: DevToys-app.DevToys
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install DevToys
+      settings:
+        id: DevToys-app.DevToys
+        source: winget

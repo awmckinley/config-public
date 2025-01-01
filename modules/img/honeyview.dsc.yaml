@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # replaces: IrfanSkiljan.IrfanView
+    - id: Bandisoft.Honeyview
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Honeyview
+      settings:
+        id: Bandisoft.Honeyview
+        source: winget

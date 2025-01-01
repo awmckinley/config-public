@@ -3,19 +3,19 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-
-    - id: FrankBijnen.ExifToolGUI
+  
+    - id: Cryptomator.Cryptomator
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install ExifToolGUI
+        description: Install Cryptomator
       settings:
-        id: FrankBijnen.ExifToolGUI
+        id: Cryptomator.Cryptomator
         source: winget
 
-    - id: OliverBetz.ExifTool
+    - id: WinFsp.WinFsp
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install ExifTool
+        description: Install Windows File System Proxy
       settings:
-        id: OliverBetz.ExifTool
+        id: WinFsp.WinFsp
         source: winget

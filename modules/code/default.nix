@@ -1,6 +1,6 @@
 _: {
   imports = [
-    ./bcompare.nix
+    ./bcomp.nix
     ./cursor.nix
     ./dash.nix
     ./exercism.nix

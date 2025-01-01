@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    # replaces: LICEcap
+    - id: NickeManarin.ScreenToGif
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install ScreenToGif
+      settings:
+        id: NickeManarin.ScreenToGif
+        source: winget

@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: LINQPad.LINQPad.8
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install LINQPad 8
+      settings:
+        id: LINQPad.LINQPad.8
+        source: winget

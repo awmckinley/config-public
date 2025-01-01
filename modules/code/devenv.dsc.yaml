@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+  
+    - id: Microsoft.VisualStudio.2022.Professional
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Visual Studio 2022 Professional
+      settings:
+        id: Microsoft.VisualStudio.2022.Professional
+        source: winget
+
+    - id: VSComponents
+      resource: Microsoft.VisualStudio.DSC/VSComponents
+      dependsOn:
+        - Microsoft.VisualStudio.2022.Professional
+      directives:
+        description: Install VS workloads
+      settings:
+        productId: Microsoft.VisualStudio.Product.Professional
+        channelId: VisualStudio.17.Release
+        vsConfigFile: '${WinGetConfigRoot}\..\..\.vsconfig'
+        includeRecommended: false

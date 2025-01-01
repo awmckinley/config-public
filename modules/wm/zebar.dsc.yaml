@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: glzr-io.glazewm
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install GlazeWM
+      settings:
+        id: glzr-io.glazewm
+        source: winget

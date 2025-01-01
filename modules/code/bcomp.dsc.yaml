@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: ScooterSoftware.BeyondCompare.5
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Beyond Compare 5
+      settings:
+        id: ScooterSoftware.BeyondCompare.5
+        source: winget
