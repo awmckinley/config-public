@@ -8,5 +8,6 @@
     ./gemini.nix
     ./gparted.nix
     ./maestral.nix
+    ./yazi.nix
   ];
 }

@@ -4,6 +4,14 @@ properties:
   configurationVersion: 0.2.0
   resources:
 
+    - id: lin-ycv.EverythingPowerToys
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Everything for PowerToys Run
+      settings:
+        id: lin-ycv.EverythingPowerToys
+        source: winget
+
     - id: Microsoft.PowerToys
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
@@ -85,7 +93,7 @@ properties:
         PowerAccent:
           Enabled: false
         PowerLauncher:
-          Enabled: false
+          Enabled: true
           OpenPowerLauncher: "Win+R"
           Plugins:
             - Name: "Calculator"

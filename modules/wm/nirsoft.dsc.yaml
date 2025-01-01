@@ -1,0 +1,277 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    - id: NirSoft.AdvancedRun
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install AdvancedRun
+      settings:
+        id: NirSoft.AdvancedRun
+        source: winget
+
+    - id: NirSoft.AlternateStreamView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install AlternateStreamView
+      settings:
+        id: NirSoft.AlternateStreamView
+        source: winget
+
+    - id: NirSoft.AppCrashView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install AppCrashView
+      settings:
+        id: NirSoft.AppCrashView
+        source: winget
+
+    - id: NirSoft.AppReadWriteCounter
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install AppReadWriteCounter
+      settings:
+        id: NirSoft.AppReadWriteCounter
+        source: winget
+
+    - id: NirSoft.BlueScreenView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install BlueScreenView
+      settings:
+        id: NirSoft.BlueScreenView
+        source: winget
+
+    - id: NirSoft.ChromeCacheView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install ChromeCacheView
+      settings:
+        id: NirSoft.ChromeCacheView
+        source: winget
+
+    - id: NirSoft.CSVFileView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install CSVFileView
+      settings:
+        id: NirSoft.CSVFileView
+        source: winget
+
+    - id: NirSoft.DNSLookupView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install DNSLookupView
+      settings:
+        id: NirSoft.DNSLookupView
+        source: winget
+
+    - id: NirSoft.DownTester
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install DownTester
+      settings:
+        id: NirSoft.DownTester
+        source: winget
+
+    - id: NirSoft.FullEventLogView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install FullEventLogView
+      settings:
+        id: NirSoft.FullEventLogView
+        source: winget
+
+    - id: NirSoft.HashMyFiles
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install HashMyFiles
+      settings:
+        id: NirSoft.HashMyFiles
+        source: winget
+
+    - id: NirSoft.InsideClipboard
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install InsideClipboard
+      settings:
+        id: NirSoft.InsideClipboard
+        source: winget
+
+    - id: NirSoft.InstalledDriversList
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install InstalledDriversList
+      settings:
+        id: NirSoft.InstalledDriversList
+        source: winget
+
+    - id: NirSoft.InstalledPackagesView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install InstalledPackagesView
+      settings:
+        id: NirSoft.InstalledPackagesView
+        source: winget
+
+    - id: NirSoft.IPNetInfo
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install IPNetInfo
+      settings:
+        id: NirSoft.IPNetInfo
+        source: winget
+
+    - id: NirSoft.NetBScanner
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NetBScanner
+      settings:
+        id: NirSoft.NetBScanner
+        source: winget
+
+    - id: NirSoft.NetRouteView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NetRouteView
+      settings:
+        id: NirSoft.NetRouteView
+        source: winget
+
+    - id: NirSoft.NetworkInterfacesView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NetworkInterfacesView
+      settings:
+        id: NirSoft.NetworkInterfacesView
+        source: winget
+
+    - id: NirSoft.NetworkOpenedFiles
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NetworkOpenedFiles
+      settings:
+        id: NirSoft.NetworkOpenedFiles
+        source: winget
+
+    - id: NirSoft.NetworkUsageView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NetworkUsageView
+      settings:
+        id: NirSoft.NetworkUsageView
+        source: winget
+
+    - id: NirSoft.NK2Edit
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install NK2Edit
+      settings:
+        id: NirSoft.NK2Edit
+        source: winget
+
+    - id: NirSoft.OpenedFilesView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install OpenedFilesView
+      settings:
+        id: NirSoft.OpenedFilesView
+        source: winget
+
+    - id: NirSoft.ResourcesExtract
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install ResourcesExtract
+      settings:
+        id: NirSoft.ResourcesExtract
+        source: winget
+
+    - id: NirSoft.SearchMyFiles
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install SearchMyFiles
+      settings:
+        id: NirSoft.SearchMyFiles
+        source: winget
+
+    - id: NirSoft.ShellExView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install ShellExView
+      settings:
+        id: NirSoft.ShellExView
+        source: winget
+
+    - id: NirSoft.SimpleProgramDebugger
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install SimpleProgramDebugger
+      settings:
+        id: NirSoft.SimpleProgramDebugger
+        source: winget
+
+    - id: NirSoft.SoundVolumeView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install SoundVolumeView
+      settings:
+        id: NirSoft.SoundVolumeView
+        source: winget
+
+    - id: NirSoft.TcpLogView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install TcpLogView
+      settings:
+        id: NirSoft.TcpLogView
+        source: winget
+
+    - id: NirSoft.TurnedOnTimesView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install TurnedOnTimesView
+      settings:
+        id: NirSoft.TurnedOnTimesView
+        source: winget
+
+    - id: NirSoft.USBLogView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install USBLogView
+      settings:
+        id: NirSoft.USBLogView
+        source: winget
+
+    - id: NirSoft.VideoCacheView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install VideoCacheView
+      settings:
+        id: NirSoft.VideoCacheView
+        source: winget
+
+    - id: NirSoft.WakeMeOnLan
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install WakeMeOnLan
+      settings:
+        id: NirSoft.WakeMeOnLan
+        source: winget
+
+    - id: NirSoft.WhoisThisDomain
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install WhoisThisDomain
+      settings:
+        id: NirSoft.WhoisThisDomain
+        source: winget
+
+    - id: NirSoft.WifiInfoView
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install WifiInfoView
+      settings:
+        id: NirSoft.WifiInfoView
+        source: winget

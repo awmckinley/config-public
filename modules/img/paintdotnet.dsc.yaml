@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: eza-community.eza
+    - id: dotPDN.PaintDotNet
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install eza
+        description: Install Paint.NET
       settings:
-        id: eza-community.eza
+        id: dotPDN.PaintDotNet
         source: winget

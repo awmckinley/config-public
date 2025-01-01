@@ -3,10 +3,19 @@
 properties:
   configurationVersion: 0.2.0
   resources:
+
     - id: CubeSoft.CubePDF
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
         description: Install CubePDF
       settings:
         id: CubeSoft.CubePDF
+        source: winget
+
+    - id: CubeSoft.CubePDFUtility
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install CubePDF Utility
+      settings:
+        id: CubeSoft.CubePDFUtility
         source: winget

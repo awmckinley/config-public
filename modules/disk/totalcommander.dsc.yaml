@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: eza-community.eza
+    - id: Ghisler.TotalCommander
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install eza
+        description: Install Total Commander
       settings:
-        id: eza-community.eza
+        id: Ghisler.TotalCommander
         source: winget

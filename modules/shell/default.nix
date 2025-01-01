@@ -30,7 +30,6 @@ _: {
     ./vivid.nix
     ./watch.nix
     ./watchexec.nix
-    ./yazi.nix
     ./zoxide.nix
     ./zsh.nix
   ];

@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: eza-community.eza
+    - id: Nlitesoft.NTLite
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install eza
+        description: Install NTLite
       settings:
-        id: eza-community.eza
+        id: Nlitesoft.NTLite
         source: winget
