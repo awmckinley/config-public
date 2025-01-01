@@ -12,22 +12,6 @@ properties:
         id: Microsoft.Azure.FunctionsCoreTools
         source: winget
 
-    - id: Microsoft.AzureCLI
-      resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Install Azure CLI
-      settings:
-        id: Microsoft.AzureCLI
-        source: winget
-
-    - id: Microsoft.Bicep
-      resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Install Bicep
-      settings:
-        id: Microsoft.Bicep
-        source: winget
-
     - id: Microsoft.DotNet.SDK.6
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
@@ -50,12 +34,4 @@ properties:
         description: Install .NET SDK 9
       settings:
         id: Microsoft.DotNet.SDK.9
-        source: winget
-
-    - id: Microsoft.NuGet
-      resource: Microsoft.WinGet.DSC/WinGetPackage
-      directives:
-        description: Install NuGet
-      settings:
-        id: Microsoft.NuGet
         source: winget
