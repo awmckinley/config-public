@@ -1,0 +1,26 @@
+{{- if eq .chezmoi.os "android" -}}
+#!{{ lookPath "bash" }}
+pkg install \
+	bat \
+	chezmoi \
+	eza \
+	fd \
+	git \
+	git-delta \
+	gotop \
+	htop \
+	just \
+	lazygit \
+	lua51 \
+	luarocks \
+	micro \
+	neovim \
+	nodejs-lts \
+	nushell \
+	rage \
+	ripgrep \
+	taskwarrior \
+	vim \
+	wget \
+	zoxide
+{{- end -}}
