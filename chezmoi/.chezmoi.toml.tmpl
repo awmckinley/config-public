@@ -3,6 +3,13 @@
 
 encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
+umask = 0o022
+
+{{ if eq .chezmoi.os "windows" }}
+scriptTempDir = "~/AppData/Local/Temp"
+{{ else }}
+scriptTempDir = "~/.local/tmp"
+{{ end }}
 
 [age]
     command = "rage"
