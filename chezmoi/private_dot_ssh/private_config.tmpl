@@ -1,0 +1,8 @@
+Host *
+	ForwardAgent yes
+	IdentityAgent ~/.1password/agent.sock
+
+Include ~/.ssh/config.private
+{{ if eq .chezmoi.os "darwin" }}
+Include ~/.orbstack/ssh/config
+{{ end }}

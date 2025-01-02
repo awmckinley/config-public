@@ -38,6 +38,7 @@ key.txt.age
 .local/share/zsh/
 .profile
 .profile.d/
+.ssh/
 .zlogin
 .zlogout
 .zprofile
