@@ -2,16 +2,24 @@
 
 function Install-Configuration {
 	param (
-		$File
+		[Parameter(Mandatory=$true)]
+		[string] $File,
+
+		[switch] $Elevate
 	)
 
-	winget configure --file {{ .chezmoi.sourceDir }}\..\$File --accept-configuration-agreements --suppress-initial-details --ignore-warnings
+	if ($Elevate) {
+		gsudo winget configure --file {{ .chezmoi.sourceDir }}\..\$File --accept-configuration-agreements --suppress-initial-details --ignore-warnings
+	} else {
+		winget configure --file {{ .chezmoi.sourceDir }}\..\$File --accept-configuration-agreements --suppress-initial-details --ignore-warnings
+	}
 }
 
 Install-Configuration -File modules\chat\teams.dsc.yaml
 Install-Configuration -File modules\code\010editor.dsc.yaml
 Install-Configuration -File modules\code\bcomp.dsc.yaml
 Install-Configuration -File modules\code\code.dsc.yaml
+Install-Configuration -File modules\code\devenv.dsc.yaml -Elevate
 Install-Configuration -File modules\code\devtoys.dsc.yaml
 Install-Configuration -File modules\code\hxd.dsc.yaml
 Install-Configuration -File modules\code\ilspy.dsc.yaml
@@ -67,6 +75,7 @@ Install-Configuration -File modules\img\paintdotnet.dsc.yaml
 Install-Configuration -File modules\img\pinta.dsc.yaml
 Install-Configuration -File modules\img\screentogif.dsc.yaml
 Install-Configuration -File modules\img\sharex.dsc.yaml
+Install-Configuration -File modules\input\masir.dsc.yaml
 Install-Configuration -File modules\input\whkd.dsc.yaml
 Install-Configuration -File modules\mail\papercut.dsc.yaml
 Install-Configuration -File modules\media\eartrumpet.dsc.yaml
@@ -83,6 +92,7 @@ Install-Configuration -File modules\net\ioninja.dsc.yaml
 Install-Configuration -File modules\net\miniserve.dsc.yaml
 Install-Configuration -File modules\net\netmon.dsc.yaml
 Install-Configuration -File modules\net\networkmanager.dsc.yaml
+Install-Configuration -File modules\net\nirsoft.dsc.yaml
 Install-Configuration -File modules\net\tailscale.dsc.yaml
 Install-Configuration -File modules\nvim\bicep.dsc.yaml
 Install-Configuration -File modules\nvim\cs.dsc.yaml
@@ -124,15 +134,10 @@ Install-Configuration -File modules\web\thorium.dsc.yaml
 Install-Configuration -File modules\wm\altsnap.dsc.yaml
 Install-Configuration -File modules\wm\flowlauncher.dsc.yaml
 Install-Configuration -File modules\wm\glazewm.dsc.yaml
-Install-Configuration -File modules\wm\komorebi.dsc.yaml
-Install-Configuration -File modules\wm\nirsoft.dsc.yaml
 Install-Configuration -File modules\wm\powertoys.dsc.yaml
 Install-Configuration -File modules\wm\twinkletray.dsc.yaml
 Install-Configuration -File modules\wm\windhawk.dsc.yaml
-Install-Configuration -File modules\wm\yasb.dsc.yaml
 Install-Configuration -File modules\wm\zebar.dsc.yaml
 Install-Configuration -File systems\windows\default.dsc.yaml
-
-gsudo Install-Configuration -File modules\code\devenv.dsc.yaml
 
 {{ end }}

@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: LGUG2Z.komorebi
+    - id: LGUG2Z.masir
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install komorebi
+        description: Install masir
       settings:
-        id: LGUG2Z.komorebi
+        id: LGUG2Z.masir
         source: winget

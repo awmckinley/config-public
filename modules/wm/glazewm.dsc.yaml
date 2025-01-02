@@ -3,10 +3,11 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: glzr-io.zebar
+    # replaces: LGUG2Z.komorebi
+    - id: glzr-io.glazewm
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Zebar
+        description: Install GlazeWM
       settings:
-        id: glzr-io.zebar
+        id: glzr-io.glazewm
         source: winget
