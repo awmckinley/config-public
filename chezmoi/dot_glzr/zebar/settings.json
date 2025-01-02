@@ -1,8 +1,8 @@
 {
-  "$schema": "https://github.com/glzr-io/zebar/raw/v2.4.0/resources/settings-schema.json",
+  "$schema": "https://github.com/glzr-io/zebar/raw/v2.6.1/resources/settings-schema.json",
   "startupConfigs": [
     {
-      "path": "starter/with-glazewm.zebar.json",
+      "path": "custom/bar.zebar.json",
       "preset": "default"
     }
   ]
