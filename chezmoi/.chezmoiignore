@@ -1,7 +1,11 @@
 .config/yazi/plugins/
 key.txt.age
 
-{{ if eq .chezmoi.os "linux" }}
+{{ if eq .chezmoi.os "android" }}
+.ssh/keys/
+{{ end }}
+
+{{ if ne .chezmoi.os "darwin" }}
 .init.d/darwin*
 .local/bin/defaults-*
 .local/bin/ioreg-*
