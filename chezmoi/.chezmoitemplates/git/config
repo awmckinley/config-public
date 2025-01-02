@@ -45,6 +45,9 @@
 [merge]
 	conflictstyle = diff3
 
+[pull]
+	rebase = true
+
 [rerere]
 	enabled = true
 
