@@ -29,6 +29,7 @@ key.txt.age
 .config/khard/
 .config/lagrange/
 .config/lazygit/
+.config/mani/
 .config/newsboat/
 .config/nushell/
 .config/task/
