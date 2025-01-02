@@ -39,6 +39,11 @@ fmt-sh:
 repl:
     @nix repl --expr $"builtins.getFlake \"($env.PWD)\""
 
+[doc("re-add modified files")]
+[group("chezmoi")]
+re-add:
+    @chezmoi re-add
+
 [doc("pull and apply changes")]
 [group("chezmoi")]
 update:
