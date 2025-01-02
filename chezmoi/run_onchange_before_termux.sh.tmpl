@@ -1,5 +1,8 @@
 {{- if eq .chezmoi.os "android" -}}
 #!{{ lookPath "bash" }}
+#
+# Install packages in Termux.
+
 pkg install \
 	bat \
 	chezmoi \
@@ -20,6 +23,7 @@ pkg install \
 	rage \
 	ripgrep \
 	taskwarrior \
+	tmux \
 	vim \
 	wget \
 	zoxide
