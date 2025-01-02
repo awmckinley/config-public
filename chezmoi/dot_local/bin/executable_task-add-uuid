@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+#
+# Add a Taskwarrior task and echo the UID.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+# disable hooks to prevent stray output
+task rc.hooks=0 add "$@" >/dev/null
+task rc.hooks=0 +LATEST uuids
