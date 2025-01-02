@@ -1,0 +1,18 @@
+#!{{ lookPath "nu" }}
+#
+# Initialize machine.
+
+def init-zsh [] {
+{{ if ne .chezmoi.os "windows" }}
+	let zgenom = $"($env.HOME)/.zgenom"
+	if not ($zgenom | path exists) {
+		print "Setup zgenom"
+		git clone --single-branch https://github.com/jandamm/zgenom.git --depth 1 $zgenom
+		print ""
+	}
+{{ end }}
+}
+
+def main [] {
+	init-zsh
+}
