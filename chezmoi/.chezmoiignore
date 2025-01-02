@@ -20,6 +20,7 @@ key.txt.age
 .bash_logout
 .bash_profile
 .bashrc
+.config/1Password/
 .config/MusicBrainz/
 .config/exactscan/
 .config/git/
