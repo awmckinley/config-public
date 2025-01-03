@@ -7,6 +7,12 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-pdm [] {
+	if (which pdm) != [] {
+		pdm config venv.backend venv
+	}
+}
+
 def init-tailscale [] {
 	if (which tailscale) == [] {
 		return
