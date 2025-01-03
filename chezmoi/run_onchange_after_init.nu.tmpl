@@ -2,6 +2,12 @@
 #
 # Initialize machine.
 
+def init-tldr [] {
+	if (which tldr) != [] {
+		tldr --update
+	}
+}
+
 def init-whisper-cpp [model: string] {
 	if (which whisper-cpp-download-ggml-model) == [] {
 		return
@@ -27,6 +33,7 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-tldr
 	init-whisper-cpp "small.en"
 	init-zsh
 }
