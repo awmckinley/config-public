@@ -2,6 +2,21 @@
 #
 # Initialize machine.
 
+def success [command?: closure]: [nothing -> bool, closure -> bool] {
+	let command = default $command
+	do $command | complete | $in.exit_code == 0
+}
+
+def init-tailscale [] {
+	if (which tailscale) == [] {
+		return
+	}
+
+	if !(success { tailscale status --peers=false }) {
+		tailscale up
+	}
+}
+
 def init-tldr [] {
 	if (which tldr) != [] {
 		tldr --update
