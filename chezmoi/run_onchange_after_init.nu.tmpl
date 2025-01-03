@@ -2,6 +2,19 @@
 #
 # Initialize machine.
 
+def init-whisper-cpp [model: string] {
+	if (which whisper-cpp-download-ggml-model) == [] {
+		return
+	}
+
+	let modelhome = $"($env.XDG_DATA_HOME)/whisper-cpp"
+	if not ($"($modelhome)/ggml-($model).bin" | path exists) {
+		whisper-cpp-download-ggml-model $model
+		mkdir $modelhome
+		mv $"ggml-($model).bin" $modelhome
+	}
+}
+
 def init-zsh [] {
 {{ if ne .chezmoi.os "windows" }}
 	let zgenom = $"($env.HOME)/.zgenom"
@@ -14,5 +27,6 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-whisper-cpp "small.en"
 	init-zsh
 }
