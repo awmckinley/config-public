@@ -7,6 +7,18 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-bat [] {
+	if (which bat) != [] {
+		bat cache --build
+	}
+}
+
+def init-bootdev [] {
+	if (which bootdev) == [] {
+		go install github.com/bootdotdev/bootdev
+	}
+}
+
 def init-burntcookie [] {
 {{ if eq .chezmoi.os "darwin" }}
 	if not ($"($env.HOME)/.cargo/bin/burntcookie" | path exists) {
@@ -96,6 +108,8 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-bat
+	init-bootdev
 	init-burntcookie
 	init-darkman
 	init-go
