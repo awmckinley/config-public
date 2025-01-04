@@ -7,6 +7,16 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-burntcookie [] {
+{{ if eq .chezmoi.os "darwin" }}
+	if not ($"($env.HOME)/.cargo/bin/burntcookie" | path exists) {
+		print "Install burntcookie"
+		cargo install --git https://github.com/horrorho/burnt-cookie.git
+		print ""
+	}
+{{ end }}
+}
+
 def init-darkman [] {
 	if (which dconf) != [] {
 		dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
@@ -86,6 +96,7 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-burntcookie
 	init-darkman
 	init-go
 	init-opam
