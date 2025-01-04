@@ -7,6 +7,26 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-opam [] {
+	if (which opam) == [] {
+		return
+	}
+
+	if not ($"($env.HOME)/.opam" | path exists) {
+		opam init --disable-sandboxing --no-setup
+	}
+
+	opam option --global depext=false
+
+	if (which ocamlformat) == [] {
+		opam install --yes ocamlformat
+	}
+
+	if (which ocamllsp) == [] {
+		opam install --yes ocaml-lsp-server
+	}
+}
+
 def init-pdm [] {
 	if (which pdm) != [] {
 		pdm config venv.backend venv
