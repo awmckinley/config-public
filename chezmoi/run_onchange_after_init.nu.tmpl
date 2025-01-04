@@ -7,6 +7,18 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-darkman [] {
+	if (which dconf) != [] {
+		dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+	}
+}
+
+def init-go [] {
+	if (which go) != [] {
+		go env -w GOBIN=$"($env.HOME)/.local/bin"
+	}
+}
+
 def init-opam [] {
 	if (which opam) == [] {
 		return
@@ -74,6 +86,11 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-darkman
+	init-go
+	init-opam
+	init-pdm
+	init-tailscale
 	init-tldr
 	init-whisper-cpp "small.en"
 	init-zsh
