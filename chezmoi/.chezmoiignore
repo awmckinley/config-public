@@ -2,7 +2,10 @@
 key.txt.age
 
 {{ if eq .chezmoi.os "android" }}
+.config/chezmoi/mail.json
+.config/goimapnotify/
 .config/vdirsyncer/
+.local/share/mbsync/
 .local/share/vdirsyncer/
 .ssh/keys/
 {{ end }}
