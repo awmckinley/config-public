@@ -1,0 +1,5 @@
+{{ range (onepassword "4526tlg2uewlixltvf5wslg7ci").fields -}}
+{{   if (eq .label "vdir") -}}
+{{     .value -}}
+{{   end -}}
+{{ end }}
