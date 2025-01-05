@@ -41,6 +41,14 @@ def init-go [] {
 	}
 }
 
+def init-goimapnotify [] {
+{{ if eq .chezmoi.os "darwin" }}
+	use goimapnotify.nu *
+	let accounts = open $"($env.HOME)/.config/mail.json"
+	goimapnotify-config $accounts | save --force $"($env.HOME)/.config/goimapnotify/goimapnotify.yaml"
+{{ end }}
+}
+
 def init-opam [] {
 	if (which opam) == [] {
 		return
@@ -113,6 +121,7 @@ def main [] {
 	init-burntcookie
 	init-darkman
 	init-go
+	init-goimapnotify
 	init-opam
 	init-pdm
 	init-tailscale

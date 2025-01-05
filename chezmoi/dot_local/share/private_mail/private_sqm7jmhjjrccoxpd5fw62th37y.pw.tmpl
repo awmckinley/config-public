@@ -1,0 +1,5 @@
+{{ range (onepassword "sqm7jmhjjrccoxpd5fw62th37y").fields -}}
+{{   if (eq .label "mbsync") -}}
+{{     .value -}}
+{{   end -}}
+{{ end }}

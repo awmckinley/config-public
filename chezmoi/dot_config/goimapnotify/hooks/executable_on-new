@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+#
+# New mail handler.
+
+set -o errexit  # Exit if any command fails
+set -o nounset  # Prevent using an undefined variable
+set -o pipefail # Pipelines fail early
+IFS=$'\n\t'
+
+# name arguments
+profile="${1:-}"
+local="${2:-}"
+domain="${3:-}"
+
+# validate arguments
+if test -z "${profile}" || test -z "${local}" || test -z "${domain}"; then
+	echo "Usage: $(basename "$0") <profile> <local> <domain>" >&2
+	exit 1
+fi
+
+# sync IMAP with maildir
+mbsync -V "group.${local}.${domain}"
+
+# update mail index
+NOTMUCH_PROFILE="${profile}" notmuch new
