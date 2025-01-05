@@ -26,5 +26,5 @@ export def local [account] {
 
 export def pwfile [account] {
 	let uuid = $account | get OpUuid
-	$"($env.HOME)/.local/share/mail/($uuid).pw"
+	$"($env.HOME)/.local/share/mbsync/($uuid).pw"
 }
