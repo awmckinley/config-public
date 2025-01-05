@@ -6,12 +6,8 @@ export def domain [account] {
 	(address $account) | split row "@" | last
 }
 
-export def group [account] {
-	$account | get Group
-}
-
 export def host [account] {
-	match ($account | get Provider) {
+	match (provider $account) {
 		"gmail" => "imap.gmail.com",
 		"spectrum" => "mail.brighthouse.com",
 		"yahoo" => "imap.mail.yahoo.com",
@@ -22,6 +18,18 @@ export def host [account] {
 
 export def local [account] {
 	(address $account) | split row "@" | first
+}
+
+export def maildir [account] {
+	$"($env.HOME)/Maildir/(domain $account)/(local $account)"
+}
+
+export def profile [account] {
+	$account | get Profile
+}
+
+export def provider [account] {
+	$account | get Provider
 }
 
 export def pwfile [account] {

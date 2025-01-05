@@ -44,8 +44,16 @@ def init-go [] {
 def init-goimapnotify [] {
 {{ if eq .chezmoi.os "darwin" }}
 	use goimapnotify.nu *
-	let accounts = open $"($env.HOME)/.config/mail.json"
+	let accounts = open $"($env.HOME)/.config/maildir.json"
 	goimapnotify-config $accounts | save --force $"($env.HOME)/.config/goimapnotify/goimapnotify.yaml"
+{{ end }}
+}
+
+def init-mbsync [] {
+{{ if eq .chezmoi.os "darwin" }}
+	use mbsync.nu *
+	let accounts = open $"($env.HOME)/.config/maildir.json"
+	mbsync-rc $accounts | save --force $"($env.HOME)/.mbsyncrc"
 {{ end }}
 }
 
@@ -122,6 +130,7 @@ def main [] {
 	init-darkman
 	init-go
 	init-goimapnotify
+	init-mbsync
 	init-opam
 	init-pdm
 	init-tailscale

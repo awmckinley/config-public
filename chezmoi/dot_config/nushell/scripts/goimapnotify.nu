@@ -5,7 +5,7 @@
 use mail.nu *
 
 def hook [event, account] {
-	$"\"($env.HOME)/.config/goimapnotify/hooks/on-($event) (group $account) (local $account) (domain $account)\""
+	$"\"($env.HOME)/.config/goimapnotify/hooks/on-($event) (profile $account) (local $account) (domain $account)\""
 }
 
 def item [account] {
