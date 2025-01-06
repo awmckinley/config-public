@@ -7,6 +7,17 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def init-aerc [] {
+{{ if eq .chezmoi.os "darwin" }}
+	use aerc.nu *
+	let grouped = open $"($env.HOME)/.config/maildir.json" | group-by Profile
+	for key in ($grouped | columns) {
+		let accounts = $grouped | get $key
+		aerc-config $accounts | save --force $"($env.HOME)/.config/aerc/accounts.($key).conf"
+	}
+{{ end }}
+}
+
 def init-bat [] {
 	if (which bat) != [] {
 		bat cache --build
@@ -124,6 +135,7 @@ def init-zsh [] {
 }
 
 def main [] {
+	init-aerc
 	init-bat
 	init-bootdev
 	init-burntcookie

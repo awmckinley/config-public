@@ -24,6 +24,10 @@ export def maildir [account] {
 	$"($env.HOME)/Maildir/(domain $account)/(local $account)"
 }
 
+export def name [account] {
+	$account | get Name
+}
+
 export def profile [account] {
 	$account | get Profile
 }
