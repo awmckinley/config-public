@@ -56,6 +56,7 @@ key.txt.age
 .zprofile
 .zshenv
 .zshrc
+Code/
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
