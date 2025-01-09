@@ -60,11 +60,7 @@
 
           # iconic font aggregator, collection, & patcher
           # release: 2014-12-04
-          (nerdfonts.override {
-            fonts = [
-              "NerdFontsSymbolsOnly"
-            ];
-          })
+          nerd-fonts.symbols-only
 
           # monospaced font created to be a most readable font for programming
           # release: 2014

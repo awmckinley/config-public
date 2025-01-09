@@ -2,13 +2,17 @@
   description = "My Nix modules.";
 
   inputs = {
-    base16.url = "github:SenchoPens/base16.nix?rev=c89c8123310257f3ddc04cc59aa4b5573c6d515f";
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=ad3f60580aa2bbc095050867deb0e0335c2269f1";
+    nixpkgs.url = "github:NixOS/nixpkgs?rev=8f3e1f807051e32d8c95cd12b9b421623850a34d";
     nur.url = "github:nix-community/NUR?rev=6d40a1f2e2fe9e912497232558012e72ff862897";
     systems.url = "github:nix-systems/default?rev=da67096a3b9bf56a91d16901293e51ba5b49a27e";
 
+    base16 = {
+      url = "github:SenchoPens/base16.nix?rev=c89c8123310257f3ddc04cc59aa4b5573c6d515f";
+      inputs.fromYaml.follows = "fromYaml";
+    };
+
     darwin = {
-      url = "github:LnL7/nix-darwin?rev=4b43b68281fd1a332c2aec8fbc077d92ca352c3e";
+      url = "github:LnL7/nix-darwin?rev=57733bd1dc81900e13438e5b4439239f1b29db0e";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -22,8 +26,13 @@
       inputs.systems.follows = "systems";
     };
 
+    fromYaml = {
+      url = "github:SenchoPens/fromYaml?rev=106af9e2f715e2d828df706c386a685698f3223b";
+      flake = false;
+    };
+
     home-manager = {
-      url = "github:nix-community/home-manager?rev=509dbf8d45606b618e9ec3bbe4e936b7c5bc6c1e";
+      url = "github:nix-community/home-manager?rev=d4aebb947a301b8da8654a804979a738c5c5da50";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -33,7 +42,7 @@
     };
 
     vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions?rev=6618c358b44a779a379485177d3391e9bd32fa09";
+      url = "github:nix-community/nix-vscode-extensions?rev=2a84ca07753e3ec608c96ed2907606361979467a";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-utils.follows = "flake-utils";
       inputs.nixpkgs.follows = "nixpkgs";
