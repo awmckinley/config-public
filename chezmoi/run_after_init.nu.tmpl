@@ -25,9 +25,11 @@ def init-bat [] {
 }
 
 def init-bootdev [] {
+{{ if ne .chezmoi.os "windows" }}
 	if (which bootdev) == [] {
 		go install github.com/bootdotdev/bootdev@latest
 	}
+{{ end }}
 }
 
 def init-burntcookie [] {

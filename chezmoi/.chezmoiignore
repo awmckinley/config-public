@@ -2,8 +2,8 @@
 key.txt.age
 
 {{ if eq .chezmoi.os "android" }}
-.config/chezmoi/mail.json
 .config/goimapnotify/
+.config/maildir.json
 .config/vdirsyncer/
 .local/share/mbsync/
 .local/share/vdirsyncer/
@@ -38,14 +38,17 @@ key.txt.age
 .config/khard/
 .config/lagrange/
 .config/lazygit/
+.config/maildir.json
 .config/mani/
 .config/newsboat/
 .config/nushell/
 .config/task/
+.config/vagrant/
 .config/vdirsyncer/
 .cron.d/
 .init.d/
 .local/bin/
+.local/share/mbsync/
 .local/share/vdirsyncer/
 .local/share/zsh/
 .profile
