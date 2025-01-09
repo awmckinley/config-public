@@ -1,0 +1,22 @@
+.shell pwsh
+
+# reload configuration
+alt + o : taskkill /f /im whkd.exe && Start-Process whkd -WindowStyle Hidden
+
+# focus window
+alt + h : glazewm command focus --direction left
+alt + j : glazewm command focus --direction down
+alt + k : glazewm command focus --direction up
+alt + l : glazewm command focus --direction right
+
+# focus workspace
+alt + shift + oem_plus : glazewm command focus --workspace 1
+alt + oem_4            : glazewm command focus --workspace 2
+alt + shift + oem_4    : glazewm command focus --workspace 3
+alt + shift + 9        : glazewm command focus --workspace 4
+alt + shift + 7        : glazewm command focus --workspace 5
+alt + oem_plus         : glazewm command focus --workspace 6
+alt + shift + 0        : glazewm command focus --workspace 7
+alt + shift + oem_6    : glazewm command focus --workspace 8
+alt + oem_6            : glazewm command focus --workspace 9
+alt + shift + 8        : glazewm command focus --workspace 10
