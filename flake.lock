@@ -184,7 +184,8 @@
         "nix-vscode-extensions": "nix-vscode-extensions",
         "nixpkgs": "nixpkgs",
         "nur": "nur",
-        "systems": "systems"
+        "systems": "systems",
+        "zig": "zig"
       }
     },
     "systems": {
@@ -200,6 +201,33 @@
         "owner": "nix-systems",
         "repo": "default",
         "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      }
+    },
+    "zig": {
+      "inputs": {
+        "flake-compat": [
+          "flake-compat"
+        ],
+        "flake-utils": [
+          "flake-utils"
+        ],
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1730722337,
+        "narHash": "sha256-tvbAprVy34KXPywdbPhIW9+0ZfrHvmtaGWSk16dg/Z8=",
+        "owner": "mitchellh",
+        "repo": "zig-overlay",
+        "rev": "efff314a4daabec1de625a1780e774fdaea50605",
+        "type": "github"
+      },
+      "original": {
+        "owner": "mitchellh",
+        "repo": "zig-overlay",
+        "rev": "efff314a4daabec1de625a1780e774fdaea50605",
         "type": "github"
       }
     }
