@@ -27,6 +27,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    treefmt = {
+      url = "github:numtide/treefmt-nix?rev=3a92dc5faaec365df9070d975775b8b7c68d0d0d";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions?rev=6618c358b44a779a379485177d3391e9bd32fa09";
       inputs.flake-compat.follows = "flake-compat";
@@ -43,13 +48,21 @@
   };
 
   outputs =
-    { nixpkgs, zig, ... }:
+    {
+      nixpkgs,
+      treefmt,
+      zig,
+      ...
+    }:
     let
       forAllSystems = nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed;
+      treefmtEval = forAllSystems (
+        system: treefmt.lib.evalModule nixpkgs.legacyPackages.${system} ./treefmt.nix
+      );
     in
     {
       darwinModules.default = import ./systems/darwin;
-      formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.nixfmt-rfc-style);
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
       nixosModules.default = import ./systems/linux;
       overlays.default = zig.overlays.default;
     };

@@ -157,6 +157,7 @@
         "nixpkgs": "nixpkgs",
         "nur": "nur",
         "systems": "systems",
+        "treefmt": "treefmt",
         "vscode-extensions": "vscode-extensions",
         "zig": "zig"
       }
@@ -174,6 +175,27 @@
         "owner": "nix-systems",
         "repo": "default",
         "rev": "da67096a3b9bf56a91d16901293e51ba5b49a27e",
+        "type": "github"
+      }
+    },
+    "treefmt": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1735650078,
+        "narHash": "sha256-T0TYR4kyiJO9UMoCF/E7r1KfNNPc5jNnvx+MQ34RhGA=",
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "3a92dc5faaec365df9070d975775b8b7c68d0d0d",
+        "type": "github"
+      },
+      "original": {
+        "owner": "numtide",
+        "repo": "treefmt-nix",
+        "rev": "3a92dc5faaec365df9070d975775b8b7c68d0d0d",
         "type": "github"
       }
     },
