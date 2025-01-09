@@ -27,7 +27,7 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-vscode-extensions = {
+    vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions?rev=6618c358b44a779a379485177d3391e9bd32fa09";
       inputs.flake-compat.follows = "flake-compat";
       inputs.flake-utils.follows = "flake-utils";
