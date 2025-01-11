@@ -7,6 +7,7 @@
 {
   imports = [
     inputs.base16.nixosModule
+    inputs.determinate.darwinModules.default
     inputs.home-manager.darwinModules.home-manager
     ../../modules
   ];

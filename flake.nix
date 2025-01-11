@@ -1,5 +1,5 @@
 {
-  description = "My Nix modules.";
+  description = "My macOS and NixOS system flake.";
 
   inputs = {
     base16 = {
@@ -76,6 +76,7 @@
   outputs =
     inputs@{
       base16,
+      darwin,
       determinate,
       home-manager,
       nixos-wsl,
@@ -91,6 +92,23 @@
     in
     {
       formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
+      # run: nix-darwin switch --flake "$(pwd)"
+      darwinConfigurations = {
+        krypton = darwin.lib.darwinSystem {
+          modules = [
+            ./hosts/krypton
+          ];
+          specialArgs = {
+            inherit inputs;
+            desktop = "aerospace";
+            isDarwin = true;
+            isLinux = false;
+            remoteDesktop = false;
+          };
+        };
+      };
+
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
