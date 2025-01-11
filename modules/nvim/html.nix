@@ -23,12 +23,6 @@
       # HTML/CSS/JSON/ESLint language servers
       vscode-langservers-extracted
     ];
-
-  nixpkgs.overlays = [
-    (final: prev: {
-      superhtml-bin = final.callPackage ../../packages/superhtml-bin.nix { };
-    })
-  ];
 }
 // lib.optionalAttrs isDarwin {
   homebrew.brews = [
