@@ -2,10 +2,6 @@
   description = "My Nix modules.";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs?rev=8f3e1f807051e32d8c95cd12b9b421623850a34d";
-    nur.url = "github:nix-community/NUR?rev=6d40a1f2e2fe9e912497232558012e72ff862897";
-    systems.url = "github:nix-systems/default?rev=da67096a3b9bf56a91d16901293e51ba5b49a27e";
-
     base16 = {
       url = "github:SenchoPens/base16.nix?rev=c89c8123310257f3ddc04cc59aa4b5573c6d515f";
       inputs.fromYaml.follows = "fromYaml";
@@ -16,13 +12,18 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    determinate = {
+      url = "https://flakehub.com/f/DeterminateSystems/determinate/0.1.165";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-compat = {
-      url = "github:edolstra/flake-compat?rev=0f9255e01c2351cc7d116c072cb317785dd33b33";
+      url = "https://flakehub.com/f/edolstra/flake-compat/1.0.1";
       flake = false;
     };
 
     flake-utils = {
-      url = "github:numtide/flake-utils?rev=c1dfcf08411b08f6b8615f7d8971a2bfa81d5e8a";
+      url = "https://flakehub.com/f/numtide/flake-utils/0.1.102";
       inputs.systems.follows = "systems";
     };
 
@@ -32,9 +33,21 @@
     };
 
     home-manager = {
-      url = "github:nix-community/home-manager?rev=d4aebb947a301b8da8654a804979a738c5c5da50";
+      url = "https://flakehub.com/f/nix-community/home-manager/0.2411.3879";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    nixos-wsl = {
+      url = "github:nix-community/NixOS-WSL?rev=63c3b4ed1712a3a0621002cd59bfdc80875ecbb0";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        nixpkgs.follows = "nixpkgs";
+      };
+    };
+
+    nixpkgs.url = "https://flakehub.com/f/NixOS/nixpkgs/0.2411.712512";
+    nur.url = "github:nix-community/NUR?rev=6d40a1f2e2fe9e912497232558012e72ff862897";
+    systems.url = "github:nix-systems/default?rev=da67096a3b9bf56a91d16901293e51ba5b49a27e";
 
     treefmt = {
       url = "github:numtide/treefmt-nix?rev=3a92dc5faaec365df9070d975775b8b7c68d0d0d";
@@ -43,24 +56,29 @@
 
     vscode-extensions = {
       url = "github:nix-community/nix-vscode-extensions?rev=2a84ca07753e3ec608c96ed2907606361979467a";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
 
     zig = {
       url = "github:mitchellh/zig-overlay?rev=efff314a4daabec1de625a1780e774fdaea50605";
-      inputs.flake-compat.follows = "flake-compat";
-      inputs.flake-utils.follows = "flake-utils";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        flake-compat.follows = "flake-compat";
+        flake-utils.follows = "flake-utils";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
   };
 
   outputs =
-    {
+    inputs@{
+      home-manager,
+      nixos-wsl,
       nixpkgs,
       treefmt,
-      zig,
       ...
     }:
     let
@@ -70,9 +88,36 @@
       );
     in
     {
-      darwinModules.default = import ./systems/darwin;
-      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
-      nixosModules.default = import ./systems/linux;
-      overlays.default = zig.overlays.default;
+      formatter = forAllSystems (
+        system: treefmtEval.${system}.config.build.wrapper
+      );
+      nixosConfigurations = {
+        nixos = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            home-manager.nixosModules.home-manager
+            nixos-wsl.nixosModules.wsl
+            ./modules/code/vim.nix
+            ./modules/nvim
+            ./modules/pkg/chezmoi.nix
+            ./modules/pkg/home-manager.nix
+            ./modules/pkg/nix.nix
+            ./modules/shell/just.nix
+            ./modules/shell/nu.nix
+            ./modules/shell/rg.nix
+            ./modules/shell/zsh.nix
+            ./modules/vc/delta.nix
+            ./modules/vc/git.nix
+            ./modules/virt/docker.nix
+            ./hosts/nixos
+            ./users/adam
+          ];
+          specialArgs = {
+            inherit inputs;
+            isDarwin = false;
+            isLinux = true;
+          };
+        };
+      };
     };
 }

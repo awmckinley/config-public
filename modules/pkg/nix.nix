@@ -12,8 +12,11 @@
     # use garbage collection
     gc = {
       automatic = true;
-      options = "--delete-older-than 30d";
+      options = "--delete-older-than 7d";
     };
+
+    # powerful package manager
+    package = pkgs.nixVersions.latest;
 
     settings = {
       # optimize by hard linking
@@ -23,18 +26,6 @@
       experimental-features = [
         "flakes"
         "nix-command"
-      ];
-
-      # use Cachix
-      substituters = [
-        "https://nix-community.cachix.org"
-        "https://cache.nixos.org/"
-      ];
-
-      # use Cachix
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-        "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
       ];
 
       # disable warnings that Git is dirty

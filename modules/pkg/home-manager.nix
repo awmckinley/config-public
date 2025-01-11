@@ -6,7 +6,7 @@
 }:
 {
   home-manager = {
-    backupFileExtension = "backup";
+    backupFileExtension = "hm-backup";
     sharedModules = [ inputs.nur.hmModules.nur ];
     useGlobalPkgs = true;
     useUserPackages = true;
