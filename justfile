@@ -45,7 +45,7 @@ repl:
 [group("nix")]
 switch: (_machine "switch")
 
-[doc("switch to new generation")]
+[doc("test new generation")]
 [group("nix")]
 test: (_machine "test")
 
