@@ -76,6 +76,7 @@
   outputs =
     inputs@{
       base16,
+      determinate,
       home-manager,
       nixos-wsl,
       nixpkgs,
@@ -95,6 +96,7 @@
           system = "x86_64-linux";
           modules = [
             base16.nixosModule
+            determinate.nixosModules.default
             home-manager.nixosModules.home-manager
             nixos-wsl.nixosModules.wsl
             ./modules

@@ -20,9 +20,6 @@
       options = "--delete-older-than 7d";
     };
 
-    # powerful package manager
-    package = pkgs.nixVersions.latest;
-
     settings = {
       # optimize by hard linking
       auto-optimise-store = isLinux;
