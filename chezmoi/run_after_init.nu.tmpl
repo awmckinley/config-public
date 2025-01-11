@@ -97,6 +97,7 @@ def init-pdm [] {
 }
 
 def init-tailscale [] {
+{{ if .decrypt }}
 	if (which tailscale) == [] {
 		return
 	}
@@ -104,6 +105,7 @@ def init-tailscale [] {
 	if not (success { tailscale status --peers=false }) {
 		tailscale up
 	}
+{{ end }}
 }
 
 def init-tldr [] {
@@ -117,7 +119,7 @@ def init-whisper-cpp [model: string] {
 		return
 	}
 
-	let modelhome = $"($env.XDG_DATA_HOME)/whisper-cpp"
+	let modelhome = $"($env.HOME)/.local/share/whisper-cpp"
 	if not ($"($modelhome)/ggml-($model).bin" | path exists) {
 		whisper-cpp-download-ggml-model $model
 		mkdir $modelhome

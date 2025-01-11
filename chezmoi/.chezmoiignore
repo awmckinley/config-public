@@ -1,3 +1,4 @@
+.config/nvim/lazy-lock.json
 .config/yazi/plugins/
 key.txt.age
 
@@ -30,26 +31,12 @@ key.txt.age
 .bash_profile
 .bashrc
 .config/1Password/
-.config/MusicBrainz/
-.config/exactscan/
 .config/git/
-.config/handbrake/
-.config/khal/
-.config/khard/
-.config/lagrange/
 .config/lazygit/
-.config/maildir.json
 .config/mani/
-.config/newsboat/
 .config/nushell/
-.config/task/
-.config/vagrant/
-.config/vdirsyncer/
-.cron.d/
 .init.d/
 .local/bin/
-.local/share/mbsync/
-.local/share/vdirsyncer/
 .local/share/zsh/
 .profile
 .profile.d/
@@ -59,7 +46,6 @@ key.txt.age
 .zprofile
 .zshenv
 .zshrc
-Code/
 {{ end }}
 
 {{ if ne .chezmoi.os "windows" }}
@@ -67,4 +53,31 @@ Code/
 .glzr/
 AppData/
 Documents/
+{{ end }}
+
+{{ if not .decrypt }}
+.config/MusicBrainz/
+.config/exactscan/
+.config/git/config.private
+.config/handbrake/
+.config/khal/
+.config/khard/
+.config/lagrange/
+.config/maildir.json
+.config/newsboat/
+.config/task/
+.config/vagrant/
+.config/vdirsyncer/
+.cron.d/
+.local/bin/fd-inbox
+.local/bin/fzf-archive
+.local/bin/tmux-mark
+.local/share/mbsync/
+.local/share/vdirsyncer/
+.profile.d/obsidian.zsh
+.profile.d/rsync.zsh
+.profile.d/shellfish.zsh
+.ssh/config.private
+.ssh/keys/
+Code/
 {{ end }}
