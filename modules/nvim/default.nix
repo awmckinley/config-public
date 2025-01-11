@@ -52,7 +52,13 @@
       # telescope dependencies
       fd
 
+      # telescope-fzf-native dependencies
+      clang
+
       # treesitter dependencies
+      curl
+      gnutar
+      nodejs_20
       tree-sitter
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
