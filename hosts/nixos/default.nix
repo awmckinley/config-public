@@ -1,8 +1,4 @@
-{
-  inputs,
-  pkgs,
-  ...
-}:
+{ pkgs, ... }:
 {
   environment.enableAllTerminfo = true;
   networking.hostName = "nixos";
@@ -16,7 +12,7 @@
     defaultUser = "adam";
     docker-desktop.enable = false;
     enable = true;
-    startMenuLaunchers = true;
+    startMenuLaunchers = false;
     wslConf = {
       automount.root = "/mnt";
       interop.appendWindowsPath = false;
