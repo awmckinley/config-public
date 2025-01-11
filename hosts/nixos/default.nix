@@ -1,22 +1,20 @@
 { pkgs, ... }:
 {
-  environment.enableAllTerminfo = true;
+  imports = [
+    ../../systems/windows
+    ../../users/adam
+  ];
+
+  # machine name
   networking.hostName = "nixos";
-  security.sudo.wheelNeedsPassword = false;
+
+  # use the Tokyo Night scheme
   schemeDark = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
   schemeLight = "${pkgs.base16-schemes}/share/themes/tokyo-night-light.yaml";
-  system.stateVersion = "22.05";
-  time.timeZone = "America/Chicago";
 
-  wsl = {
-    defaultUser = "adam";
-    docker-desktop.enable = false;
-    enable = true;
-    startMenuLaunchers = false;
-    wslConf = {
-      automount.root = "/mnt";
-      interop.appendWindowsPath = false;
-      network.generateHosts = false;
-    };
-  };
+  # first version installed on this machine
+  system.stateVersion = "22.05";
+
+  # time zone
+  time.timeZone = "America/Chicago";
 }

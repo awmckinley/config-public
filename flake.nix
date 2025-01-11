@@ -113,13 +113,7 @@
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
-            base16.nixosModule
-            determinate.nixosModules.default
-            home-manager.nixosModules.home-manager
-            nixos-wsl.nixosModules.wsl
-            ./modules
             ./hosts/nixos
-            ./users/adam
           ];
           specialArgs = {
             inherit inputs;

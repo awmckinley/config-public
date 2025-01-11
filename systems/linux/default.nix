@@ -1,13 +1,13 @@
 {
   config,
   inputs,
-  lib,
   pkgs,
   ...
 }:
 {
   imports = [
     inputs.base16.nixosModule
+    inputs.determinate.nixosModules.default
     inputs.home-manager.nixosModules.home-manager
     ../../modules
   ];
