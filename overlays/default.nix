@@ -1,5 +1,7 @@
 final: prev: {
+  csharpier = final.callPackage ../packages/csharpier.nix { };
   kalc = final.callPackage ../packages/kalc.nix { };
+  kiota = final.callPackage ../packages/kiota.nix { };
   mdformat = final.callPackage ../packages/mdformat.nix { };
   minicloze = final.callPackage ../packages/minicloze.nix { };
   mult = final.callPackage ../packages/mult.nix { };

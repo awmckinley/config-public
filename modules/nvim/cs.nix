@@ -35,17 +35,8 @@
     kiota
   ];
 
-  nixpkgs = {
-    config.permittedInsecurePackages = [
-      "dotnet-sdk-6.0.428"
-      "dotnet-sdk-7.0.410"
-    ];
-
-    overlays = [
-      (final: prev: {
-        csharpier = final.callPackage ../../packages/csharpier.nix { };
-        kiota = final.callPackage ../../packages/kiota.nix { };
-      })
-    ];
-  };
+  nixpkgs.config.permittedInsecurePackages = [
+    "dotnet-sdk-6.0.428"
+    "dotnet-sdk-7.0.410"
+  ];
 }
