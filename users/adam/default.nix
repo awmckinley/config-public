@@ -12,7 +12,7 @@ let
 in
 {
   home-manager.users.adam = import ./home.nix;
-  nix.settings.trusted-users = ["nixos"];
+  nix.settings.trusted-users = [ "nixos" ];
 
   users.users.adam =
     {
@@ -37,9 +37,9 @@ in
     };
 }
 // lib.optionalAttrs isDarwin {
-  system.defaults.dock.persistent-others = ["${downloads}"];
-  system.defaults.screencapture.location = ["${downloads}"];
+  system.defaults.dock.persistent-others = [ "${downloads}" ];
+  system.defaults.screencapture.location = [ "${downloads}" ];
 }
 // lib.optionalAttrs isLinux {
-  programs._1password-gui.polkitPolicyOwners = ["adam"];
+  programs._1password-gui.polkitPolicyOwners = [ "adam" ];
 }

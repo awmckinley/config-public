@@ -75,6 +75,7 @@
 
   outputs =
     inputs@{
+      base16,
       home-manager,
       nixos-wsl,
       nixpkgs,
@@ -88,27 +89,15 @@
       );
     in
     {
-      formatter = forAllSystems (
-        system: treefmtEval.${system}.config.build.wrapper
-      );
+      formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
+            base16.nixosModule
             home-manager.nixosModules.home-manager
             nixos-wsl.nixosModules.wsl
-            ./modules/code/vim.nix
-            ./modules/nvim
-            ./modules/pkg/chezmoi.nix
-            ./modules/pkg/home-manager.nix
-            ./modules/pkg/nix.nix
-            ./modules/shell/just.nix
-            ./modules/shell/nu.nix
-            ./modules/shell/rg.nix
-            ./modules/shell/zsh.nix
-            ./modules/vc/delta.nix
-            ./modules/vc/git.nix
-            ./modules/virt/docker.nix
+            ./modules
             ./hosts/nixos
             ./users/adam
           ];

@@ -1,4 +1,9 @@
-{ isLinux, pkgs, ... }:
+{
+  inputs,
+  isLinux,
+  pkgs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
     # explain why two Nix derivations differ
@@ -44,6 +49,7 @@
 
     # apply each overlay found in overlays directory
     overlays = [
+      inputs.zig.overlays.default
       (import ../../overlays)
     ];
   };

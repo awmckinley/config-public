@@ -18,13 +18,13 @@
       schemeAttrsType = attrsOf anything;
     in
     {
-      darkScheme = lib.options.mkOption {
+      schemeDark = lib.options.mkOption {
         description = "Current scheme for dark mode";
         type = coercedTo optionValueType coerce schemeAttrsType;
         default = "${pkgs.base16-schemes}/share/themes/default-dark.yaml";
       };
 
-      lightScheme = lib.options.mkOption {
+      schemeLight = lib.options.mkOption {
         description = "Current scheme for light mode";
         type = coercedTo optionValueType coerce schemeAttrsType;
         default = "${pkgs.base16-schemes}/share/themes/default-light.yaml";
@@ -58,16 +58,16 @@
     {
       environment = {
         etc = {
-          "theme.dark.env" = env config.darkScheme;
-          "theme.light.env" = env config.lightScheme;
+          "theme.dark.env" = env config.schemeDark;
+          "theme.light.env" = env config.schemeLight;
         };
 
         variables = {
           # export themes to env
-          THEME_DARK = config.darkScheme.slug;
-          THEME_LIGHT = config.lightScheme.slug;
-          VARIANT_DARK = config.darkScheme.variant;
-          VARIANT_LIGHT = config.lightScheme.variant;
+          THEME_DARK = config.schemeDark.slug;
+          THEME_LIGHT = config.schemeLight.slug;
+          VARIANT_DARK = config.schemeDark.variant;
+          VARIANT_LIGHT = config.schemeLight.variant;
         };
       };
     };

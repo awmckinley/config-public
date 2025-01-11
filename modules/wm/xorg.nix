@@ -51,9 +51,6 @@
     # X Window System initializer
     displayManager.startx.enable = true;
 
-    # use NVIDIA driver
-    videoDrivers = [ "nvidia" ];
-
     # X keyboard layout
     xkb = {
       layout = "us";
