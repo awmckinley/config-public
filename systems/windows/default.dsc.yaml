@@ -16,7 +16,7 @@ properties:
         DevDrive: true
         AllowDestructive: true
         FSFormat: "ReFS"
-        Size: "90Gb"
+        Size: "100Gb"
 
     - id: DeveloperMode
       resource: Microsoft.Windows.Developer/DeveloperMode
