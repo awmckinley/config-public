@@ -6,6 +6,7 @@ _: {
     ./coreutils.nix
     ./direnv.nix
     ./dos2unix.nix
+    ./elvish.nix
     ./expect.nix
     ./eza.nix
     ./fd.nix
