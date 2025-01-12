@@ -23,13 +23,11 @@ def item [account] {
     onNewMail: (hook new $account)
     onNewMailPost: (hook new-post $account)
     onDeletedMail: (hook deleted $account)
-    onDeletedMailPost: (hook deleted-post $account)
-	"
+    onDeletedMailPost: (hook deleted-post $account)"
 }
 
 export def goimapnotify-config [accounts] {
 	$"
 configurations:
-($accounts | each { |account| item $account } | str join "\n")
-	"
+($accounts | each { |account| item $account } | str join "\n")"
 }

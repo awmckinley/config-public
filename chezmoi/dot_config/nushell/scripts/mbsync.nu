@@ -71,8 +71,7 @@ Sync Pull
 Create Near
 Expunge Near
 CopyArrivalDate yes
-SyncState *
-	"
+SyncState *"
 }
 
 def spectrum-item [account] {
@@ -107,8 +106,7 @@ Create Near
 Remove Near
 Expunge Both
 CopyArrivalDate yes
-SyncState *
-	"
+SyncState *"
 }
 
 def yahoo-item [account] {
@@ -143,8 +141,7 @@ Create Near
 Remove Near
 Expunge Both
 CopyArrivalDate yes
-SyncState *
-	"
+SyncState *"
 }
 
 def zohomail-item [account] {
@@ -179,8 +176,7 @@ Create Near
 Remove Near
 Expunge Both
 CopyArrivalDate yes
-SyncState *
-	"
+SyncState *"
 }
 
 def item [account] {
@@ -202,6 +198,5 @@ FSync yes
 # NOTE: unsure whether this or InfoDelimiter is the culprit
 FieldDelimiter :
 
-($accounts | each { |account| item $account } | str join "\n")
-	"
+($accounts | each { |account| item $account } | str join "\n")"
 }

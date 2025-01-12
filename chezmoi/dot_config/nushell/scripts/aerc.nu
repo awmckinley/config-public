@@ -16,8 +16,7 @@ folder-map         = ~/.config/aerc/gmail.map
 from               = \"(name $account)\" <(address $account)>
 outgoing           = /usr/bin/sendmail
 postpone           = \"[Gmail].Drafts\"
-source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/
-	"
+source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/"
 }
 
 def spectrum-item [account] {
@@ -32,8 +31,7 @@ folder-map         = ~/.config/aerc/spectrum.map
 from               = \"(name $account)\" <(address $account)>
 outgoing           = /usr/bin/sendmail
 postpone           = \"Drafts\"
-source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/
-	"
+source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/"
 }
 
 def yahoo-item [account] {
@@ -46,8 +44,7 @@ folder-map         = ~/.config/aerc/yahoo.map
 from               = \"(name $account)\" <(address $account)>
 outgoing           = /usr/bin/sendmail
 postpone           = \"Draft\"
-source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/
-	"
+source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/"
 }
 
 def zohomail-item [account] {
@@ -59,8 +56,7 @@ folders-sort       = INBOX,Sent,Drafts,Archive,Spam,Trash
 folder-map         = ~/.config/aerc/zohomail.map
 from               = \"(name $account)\" <(address $account)>
 outgoing           = /usr/bin/sendmail
-source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/
-	"
+source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/"
 }
 
 def item [account] {
@@ -86,6 +82,5 @@ source             = notmuch://($env.HOME)/Maildir/notmuch/(profile $account0)/
 
 [offline]
 from   = \"(name $account0)\" <(address $account0)>
-source = maildir://($env.HOME)/Maildir/localhost/(profile $account0)/
-	"
+source = maildir://($env.HOME)/Maildir/localhost/(profile $account0)/"
 }
