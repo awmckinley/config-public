@@ -3,11 +3,14 @@
 	quotePath = false
 
 [credential]
-{{ if eq .chezmoi.os "windows" }}
-	credentialStore = wincredman
-{{ else if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" }}
 	credentialStore = keychain
 	helper = {{ lookPath "git-credential-manager" }}
+{{ else if eq .chezmoi.os "windows" }}
+	credentialStore = wincredman
+{{ else if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+	credentialStore = wincredman
+	helper = "/mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-wincred.exe"
 {{ else }}
 	cacheOptions = --timeout 900
 	credentialStore = cache
