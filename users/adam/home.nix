@@ -1,6 +1,7 @@
 {
   inputs,
   isLinux,
+  isWSL,
   lib,
   pkgs,
   ...
@@ -86,65 +87,67 @@ in
       ];
     };
 
-  programs.vscode = {
-    # configure Visual Studio Code
-    enable = true;
+  programs.vscode =
+    { }
+    // lib.optionalAttrs (!isWSL) {
+      # configure Visual Studio Code
+      enable = true;
 
-    # disable update nags
-    enableExtensionUpdateCheck = false;
-    enableUpdateCheck = false;
+      # disable update nags
+      enableExtensionUpdateCheck = false;
+      enableUpdateCheck = false;
 
-    # source code editor
-    package = pkgs.vscode.override { };
+      # source code editor
+      package = pkgs.vscode.override { };
 
-    extensions = with vscode-extensions.vscode-marketplace; [
-      # Neovim integration
-      asvetliakov.vscode-neovim
+      extensions = with vscode-extensions.vscode-marketplace; [
+        # Neovim integration
+        asvetliakov.vscode-neovim
 
-      # code formatter
-      csharpier.csharpier-vscode
+        # code formatter
+        csharpier.csharpier-vscode
 
-      # XML formatting, XQuery, and XPath tools
-      dotjoshjohnson.xml
+        # XML formatting, XQuery, and XPath tools
+        dotjoshjohnson.xml
 
-      # edit Excel spreadsheets and CSV files
-      grapecity.gc-excelviewer
+        # edit Excel spreadsheets and CSV files
+        grapecity.gc-excelviewer
 
-      # official C# extension
-      ms-dotnettools.csdevkit
+        # official C# extension
+        ms-dotnettools.csdevkit
 
-      # base C# support
-      ms-dotnettools.csharp
+        # base C# support
+        ms-dotnettools.csharp
 
-      # install and manage .NET SDK and runtime
-      ms-dotnettools.vscode-dotnet-runtime
+        # install and manage .NET SDK and runtime
+        ms-dotnettools.vscode-dotnet-runtime
 
-      # AI-assisted development
-      ms-dotnettools.vscodeintellicode-csharp
+        # AI-assisted development
+        ms-dotnettools.vscodeintellicode-csharp
 
-      # connect to a remote machine through a tunnel
-      ms-vscode.remote-server
-    ];
+        # connect to a remote machine through a tunnel
+        ms-vscode.remote-server
+      ];
 
-    # freeze extensions
-    mutableExtensionsDir = false;
+      # freeze extensions
+      mutableExtensionsDir = false;
 
-    userSettings = {
-      "editor.formatOnSave" = false;
-      "extensions.experimental.affinity" = {
-        "asvetliakov.vscode-neovim" = 1;
-      };
-      "extensions.ignoreRecommendations" = true;
-      "telemetry.telemetryLevel" = "off";
-      "update.showReleaseNotes" = false;
-      "workbench.startupEditor" = "none";
-      "[csharp]" = {
-        "editor.defaultFormatter" = "csharpier.csharpier-vscode";
-        "editor.formatOnSave" = true;
-        "editor.formatOnSaveMode" = "file";
+      userSettings = {
+        "editor.formatOnSave" = false;
+        "extensions.experimental.affinity" = {
+          "asvetliakov.vscode-neovim" = 1;
+        };
+        "extensions.ignoreRecommendations" = true;
+        "telemetry.telemetryLevel" = "off";
+        "update.showReleaseNotes" = false;
+        "workbench.startupEditor" = "none";
+        "[csharp]" = {
+          "editor.defaultFormatter" = "csharpier.csharpier-vscode";
+          "editor.formatOnSave" = true;
+          "editor.formatOnSaveMode" = "file";
+        };
       };
     };
-  };
 
   systemd.user = {
     startServices = "sd-switch";

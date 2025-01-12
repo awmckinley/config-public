@@ -104,6 +104,7 @@
             desktop = "aerospace";
             isDarwin = true;
             isLinux = false;
+            isWSL = false;
             remoteDesktop = false;
           };
         };
@@ -117,8 +118,11 @@
           ];
           specialArgs = {
             inherit inputs;
+            desktop = "i3";
             isDarwin = false;
             isLinux = true;
+            isWSL = true;
+            remoteDesktop = false;
           };
         };
       };

@@ -2,6 +2,7 @@
   inputs,
   isDarwin,
   isLinux,
+  isWSL,
   ...
 }:
 {
@@ -15,6 +16,7 @@
       inherit inputs;
       inherit isDarwin;
       inherit isLinux;
+      inherit isWSL;
     };
   };
 }
