@@ -104,14 +104,14 @@ in
         # Neovim integration
         asvetliakov.vscode-neovim
 
-        # code formatter
-        csharpier.csharpier-vscode
-
         # XML formatting, XQuery, and XPath tools
         dotjoshjohnson.xml
 
         # edit Excel spreadsheets and CSV files
         grapecity.gc-excelviewer
+
+        # Nix language support
+        jnoortheen.nix-ide
 
         # official C# extension
         ms-dotnettools.csdevkit
@@ -125,8 +125,17 @@ in
         # AI-assisted development
         ms-dotnettools.vscodeintellicode-csharp
 
+        # develop PowerShell modules, commands and scripts
+        ms-vscode.powershell
+
         # connect to a remote machine through a tunnel
         ms-vscode.remote-server
+
+        # YAML language support
+        redhat.vscode-yaml
+
+        # provides syntax and recipe launcher for Just scripts
+        skellock.just
       ];
 
       # freeze extensions
@@ -142,7 +151,6 @@ in
         "update.showReleaseNotes" = false;
         "workbench.startupEditor" = "none";
         "[csharp]" = {
-          "editor.defaultFormatter" = "csharpier.csharpier-vscode";
           "editor.formatOnSave" = true;
           "editor.formatOnSaveMode" = "file";
         };

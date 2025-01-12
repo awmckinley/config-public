@@ -1,0 +1,16 @@
+{
+    "recommendations": [
+        "asvetliakov.vscode-neovim",
+        "dotjoshjohnson.xml",
+        "grapecity.gc-excelviewer",
+        "jnoortheen.nix-ide",
+        "ms-dotnettools.csdevkit",
+        "ms-dotnettools.csharp",
+        "ms-dotnettools.vscode-dotnet-runtime",
+        "ms-dotnettools.vscodeintellicode-csharp",
+        "ms-vscode.powershell",
+        "ms-vscode.remote-server",
+        "redhat.vscode-yaml",
+        "skellock.just",
+    ]
+}
