@@ -56,10 +56,8 @@ update:
 
 [linux]
 _machine operation:
-    @nix flake update
     @sudo nixos-rebuild '{{ operation }}' --flake $"($env.PWD)"
 
 [macos]
 _machine operation:
-    @nix flake update
     @nix run nix-darwin -- '{{ operation }}' --flake $"($env.PWD)"
