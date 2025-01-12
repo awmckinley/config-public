@@ -23,7 +23,7 @@ default-root-container-orientation = "auto"
 [gaps]
 inner.horizontal = 12
 inner.vertical = 12
-outer.bottom = 50 # bar height (40) + border width (10)
+outer.bottom = 50     # bar height (40) + border width (10)
 outer.left = 12
 outer.right = 12
 outer.top = 12
@@ -63,6 +63,10 @@ if.app-id = "com.p5sys.jumpdesktop-setapp"
 run = ["move-node-to-workspace 02"]
 
 # workspace 3
+
+[[on-window-detected]]
+if.app-id = "com.mitchellh.ghostty"
+run = ["move-node-to-workspace 03"]
 
 [[on-window-detected]]
 if.app-id = "com.github.wez.wezterm"
