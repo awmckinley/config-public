@@ -24,6 +24,9 @@
     # disable shortcuts in the start menu
     startMenuLaunchers = false;
 
+    # enable OpenGL driver from the Windows host
+    useWindowsDriver = true;
+
     wslConf = {
       # mount Windows drives under /mnt
       automount.root = "/mnt";
