@@ -31,6 +31,7 @@ key.txt.age
 .bash_profile
 .bashrc
 .config/1Password/
+.config/ghostty/
 .config/git/
 .config/lazygit/
 .config/mani/
