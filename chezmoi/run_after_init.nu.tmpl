@@ -11,6 +11,7 @@ def init-aerc [] {
 {{ if eq .chezmoi.os "darwin" }}
 	use aerc.nu *
 	let grouped = open $"($env.HOME)/.config/maildir.json" | group-by Profile
+	aerc-aliases ($grouped | columns) | save --force $"($env.HOME)/.profile.d/aerc.zsh"
 	for key in ($grouped | columns) {
 		let accounts = $grouped | get $key
 		aerc-config $accounts | save --force $"($env.HOME)/.config/aerc/accounts.($key).conf"

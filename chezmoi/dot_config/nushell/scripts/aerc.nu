@@ -4,6 +4,20 @@
 
 use mail.nu *
 
+def aerc-alias [profile] {
+	$"alias aerc-($profile)='aerc --accounts-conf ($env.HOME)/.config/aerc/accounts.($profile).conf'"
+}
+
+def aerc-item [account] {
+	match (provider $account) {
+		"gmail" => (gmail-item $account),
+		"spectrum" => (spectrum-item $account),
+		"yahoo" => (yahoo-item $account),
+		"zohomail" => (zohomail-item $account),
+		_ => "",
+	}
+}
+
 def gmail-item [account] {
 	$"
 [(address $account)]
@@ -59,14 +73,8 @@ outgoing           = /usr/bin/sendmail
 source             = maildir://($env.HOME)/Maildir/(domain $account)/(local $account)/"
 }
 
-def item [account] {
-	match (provider $account) {
-		"gmail" => (gmail-item $account),
-		"spectrum" => (spectrum-item $account),
-		"yahoo" => (yahoo-item $account),
-		"zohomail" => (zohomail-item $account),
-		_ => "",
-	}
+export def aerc-aliases [profiles] {
+	$profiles | each { |profile| aerc-alias $profile } | str join "\n"
 }
 
 export def aerc-config [accounts] {
@@ -78,7 +86,7 @@ check-mail-timeout = 90s
 from               = \"(name $account0)\" <(address $account0)>
 source             = notmuch://($env.HOME)/Maildir/notmuch/(profile $account0)/
 
-($accounts | each { |account| item $account } | str join "\n")
+($accounts | each { |account| aerc-item $account } | str join "\n")
 
 [offline]
 from   = \"(name $account0)\" <(address $account0)>
