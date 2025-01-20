@@ -128,6 +128,12 @@ def init-whisper-cpp [model: string] {
 	}
 }
 
+def init-winget [] {
+	if (which winget) != [] {
+		winget update --all --include-unknown
+	}
+}
+
 def init-zsh [] {
 {{ if ne .chezmoi.os "windows" }}
 	let zgenom = $"($env.HOME)/.zgenom"
