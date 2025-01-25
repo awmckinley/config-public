@@ -104,14 +104,26 @@ in
         # Neovim integration
         asvetliakov.vscode-neovim
 
+        # Markdown linting and style checking
+        davidanson.vscode-markdownlint
+
         # XML formatting, XQuery, and XPath tools
         dotjoshjohnson.xml
 
         # edit Excel spreadsheets and CSV files
         grapecity.gc-excelviewer
 
+        # show TODO, FIXME, etc. comment tags in a tree view
+        gruntfuggly.todo-tree
+
+        # REST client
+        humao.rest-client
+
         # Nix language support
         jnoortheen.nix-ide
+
+        # create, manage, and debug containerized applications
+        ms-azuretools.vscode-docker
 
         # official C# extension
         ms-dotnettools.csdevkit
@@ -125,11 +137,17 @@ in
         # AI-assisted development
         ms-dotnettools.vscodeintellicode-csharp
 
+        # develop, deploy and debug Kubernetes applications
+        ms-kubernetes-tools.vscode-kubernetes-tools
+
         # develop PowerShell modules, commands and scripts
         ms-vscode.powershell
 
         # connect to a remote machine through a tunnel
         ms-vscode.remote-server
+
+        # displays CPU stats, memory/disk consumption, and battery percentage
+        mutantdino.resourcemonitor
 
         # YAML language support
         redhat.vscode-yaml

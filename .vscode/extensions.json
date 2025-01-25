@@ -1,15 +1,21 @@
 {
     "recommendations": [
         "asvetliakov.vscode-neovim",
+        "davidanson.vscode-markdownlint",
         "dotjoshjohnson.xml",
         "grapecity.gc-excelviewer",
+        "gruntfuggly.todo-tree",
+        "humao.rest-client",
         "jnoortheen.nix-ide",
+        "ms-azuretools.vscode-docker",
         "ms-dotnettools.csdevkit",
         "ms-dotnettools.csharp",
         "ms-dotnettools.vscode-dotnet-runtime",
         "ms-dotnettools.vscodeintellicode-csharp",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
         "ms-vscode.powershell",
         "ms-vscode.remote-server",
+        "mutantdino.resourcemonitor",
         "redhat.vscode-yaml",
         "skellock.just",
     ]
