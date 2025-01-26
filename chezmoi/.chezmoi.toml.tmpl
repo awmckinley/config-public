@@ -1,5 +1,6 @@
 {{ $decrypt := promptBoolOnce . "decrypt" "Decrypt private key" false -}}
 {{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
+{{ $recurrence := promptBoolOnce . "recurrence" "Calculate Taskwarrior recurrence" false -}}
 
 encryption = "age"
 sourceDir = "{{ .chezmoi.sourceDir }}"
@@ -24,6 +25,7 @@ scriptTempDir = "~/.local/tmp"
 {{ else }}
     gitDir = "~/.config/git"
 {{ end }}
+    recurrence = {{ $recurrence }}
 
 [diff]
     command = "delta"

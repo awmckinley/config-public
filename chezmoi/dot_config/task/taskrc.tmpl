@@ -48,8 +48,13 @@ print.empty.columns=1
 # case-insensitive search
 search.case.sensitive=0
 
-# disable recurrence by default
+{{ if .recurrence }}
+# enable recurrence
+recurrence=1
+{{ else }}
+# disable recurrence
 recurrence=0
+{{ end }}
 
 # CALENDAR
 
@@ -171,8 +176,3 @@ context=$TASK_CONTEXT
 
 # private config
 include taskrc.private
-
-# LOCAL
-
-# local config
-include taskrc.local
