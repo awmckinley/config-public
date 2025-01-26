@@ -63,6 +63,12 @@ def init-goimapnotify [] {
 {{ end }}
 }
 
+def init-mani [] {
+	if (which mani) == [] {
+		go install github.com/alajmo/mani@latest
+	}
+}
+
 def init-mbsync [] {
 {{ if eq .chezmoi.os "darwin" }}
 	use mbsync.nu *
@@ -153,6 +159,7 @@ def main [] {
 	init-darkman
 	init-go
 	init-goimapnotify
+	init-mani
 	init-mbsync
 	init-opam
 	init-pdm
