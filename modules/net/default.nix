@@ -9,6 +9,6 @@ _: {
     ./rsync.nix
     ./tailscale.nix
     ./transmit.nix
-    ./wakeonlan.nix
+    ./wol.nix
   ];
 }

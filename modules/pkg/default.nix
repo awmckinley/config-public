@@ -5,6 +5,5 @@ _: {
     ./home-manager.nix
     ./nix.nix
     ./setapp.nix
-    ./stow.nix
   ];
 }

@@ -9,7 +9,7 @@
     with pkgs;
     [
       # terminal multiplexer
-      # replaces: byobu, screen, vtm, zellij
+      # replaces: byobu, screen, vtm
       tmux
 
       # tmux-menu dependencies

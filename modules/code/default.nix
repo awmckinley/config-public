@@ -8,6 +8,7 @@ _: {
     ./leetgo.nix
     ./navi.nix
     ./nova.nix
+    ./tldr.nix
     ./vim.nix
     ./xcode.nix
   ];

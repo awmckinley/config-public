@@ -1,7 +1,8 @@
 _: {
   imports = [
-    ./btop.nix
+    ./btm.nix
     ./fastfetch.nix
+    ./htop.nix
     ./mercury.nix
     ./powertop.nix
     ./procs.nix
