@@ -1,0 +1,7 @@
+# yaml-language-server: $schema=https://aliae.dev/schema.json
+alias:
+  - name: task-delete-completed
+    value: task +COMPLETED modify status:deleted
+path:
+  - value: |
+      {{ .Home }}/.cargo/bin

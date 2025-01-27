@@ -7,6 +7,12 @@ def success [command?: closure]: [nothing -> bool, closure -> bool] {
 	do $command | complete | $in.exit_code == 0
 }
 
+def prereq-go [] {
+	if (which go) != [] {
+		go env -w GOBIN=$"($env.HOME)/.local/bin"
+	}
+}
+
 def init-aerc [] {
 {{ if eq .chezmoi.os "darwin" }}
 	use aerc.nu *
@@ -19,6 +25,14 @@ def init-aerc [] {
 {{ end }}
 }
 
+def init-aliae [] {
+	if (which aliae) == [] {
+		print "Install aliae"
+		curl -s https://aliae.dev/install.sh | bash -s -- -d ~/.local/bin
+		print ""
+	}
+}
+
 def init-bat [] {
 	if (which bat) != [] {
 		bat cache --build
@@ -28,14 +42,17 @@ def init-bat [] {
 def init-bootdev [] {
 {{ if ne .chezmoi.os "windows" }}
 	if (which bootdev) == [] {
+		prereq-go
+		print "Install bootdev"
 		go install github.com/bootdotdev/bootdev@latest
+		print ""
 	}
 {{ end }}
 }
 
 def init-burntcookie [] {
 {{ if eq .chezmoi.os "darwin" }}
-	if not ($"($env.HOME)/.cargo/bin/burntcookie" | path exists) {
+	if (which burntcookie) == [] {
 		print "Install burntcookie"
 		cargo install --git https://github.com/horrorho/burnt-cookie.git
 		print ""
@@ -43,15 +60,17 @@ def init-burntcookie [] {
 {{ end }}
 }
 
-def init-darkman [] {
-	if (which dconf) != [] {
-		dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
+def init-committed [] {
+	if (which committed) == [] {
+		print "Install committed"
+		cargo install committed
+		print ""
 	}
 }
 
-def init-go [] {
-	if (which go) != [] {
-		go env -w GOBIN=$"($env.HOME)/.local/bin"
+def init-darkman [] {
+	if (which dconf) != [] {
+		dconf write /org/gnome/desktop/interface/color-scheme "'prefer-dark'"
 	}
 }
 
@@ -65,7 +84,10 @@ def init-goimapnotify [] {
 
 def init-mani [] {
 	if (which mani) == [] {
+		prereq-go
+		print "Install mani"
 		go install github.com/alajmo/mani@latest
+		print ""
 	}
 }
 
@@ -153,11 +175,12 @@ def init-zsh [] {
 
 def main [] {
 	init-aerc
+	init-aliae
 	init-bat
 	init-bootdev
 	init-burntcookie
+	init-committed
 	init-darkman
-	init-go
 	init-goimapnotify
 	init-mani
 	init-mbsync

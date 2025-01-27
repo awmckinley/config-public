@@ -1,5 +1,6 @@
 _: {
   imports = [
+    ./aliae.nix
     ./ast-grep.nix
     ./bat.nix
     ./choose.nix
