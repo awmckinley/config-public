@@ -26,11 +26,13 @@ def init-aerc [] {
 }
 
 def init-aliae [] {
+{{ if eq .chezmoi.os "android" }}
 	if (which aliae) == [] {
 		print "Install aliae"
 		curl -s https://aliae.dev/install.sh | bash -s -- -d ~/.local/bin
 		print ""
 	}
+{{ endif }}
 }
 
 def init-bat [] {
