@@ -5,3 +5,4 @@ alias:
 path:
   - value: |
       {{ .Home }}/.cargo/bin
+      {{ .Home }}/.local/bin
