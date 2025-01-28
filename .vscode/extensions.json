@@ -18,5 +18,6 @@
         "mutantdino.resourcemonitor",
         "redhat.vscode-yaml",
         "skellock.just",
+        "TheNuProjectContributors.vscode-nushell-lang",
     ]
 }

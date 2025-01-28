@@ -154,6 +154,9 @@ in
 
         # provides syntax and recipe launcher for Just scripts
         skellock.just
+
+        # nushell language
+        TheNuProjectContributors.vscode-nushell-lang
       ];
 
       # freeze extensions
