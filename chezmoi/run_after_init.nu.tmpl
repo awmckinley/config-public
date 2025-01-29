@@ -32,7 +32,18 @@ def init-aliae [] {
 		curl -s https://aliae.dev/install.sh | bash -s -- -d ~/.local/bin
 		print ""
 	}
-{{ endif }}
+{{ end }}
+}
+
+def init-az [] {
+	if (which az) != [] {
+		print "Upgrade Azure CLI"
+		az upgrade
+		az extension add --name azure-devops
+		az extension add --name bastion
+		az extension add --name interactive
+		print ""
+	}
 }
 
 def init-bat [] {
@@ -178,6 +189,7 @@ def init-zsh [] {
 def main [] {
 	init-aerc
 	init-aliae
+	init-az
 	init-bat
 	init-bootdev
 	init-burntcookie
