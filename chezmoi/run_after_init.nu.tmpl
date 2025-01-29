@@ -73,6 +73,14 @@ def init-burntcookie [] {
 {{ end }}
 }
 
+def init-cargo [] {
+	if (which cargo) != [] {
+		print "Install cargo-update"
+		cargo install cargo-update
+		print ""
+	}
+}
+
 def init-committed [] {
 	if (which committed) == [] {
 		print "Install committed"
@@ -199,6 +207,7 @@ def main [] {
 	init-bat
 	init-bootdev
 	init-burntcookie
+	init-cargo
 	init-committed
 	init-darkman
 	init-goimapnotify
