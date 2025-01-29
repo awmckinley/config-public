@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: ChidiWilliams.Buzz
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Buzz
+      settings:
+        id: ChidiWilliams.Buzz
+        source: winget
