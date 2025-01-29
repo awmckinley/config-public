@@ -2,7 +2,6 @@ _: {
   imports = [
     ./bcomp.nix
     ./cursor.nix
-    ./dash.nix
     ./exercism.nix
     ./jetbrains.nix
     ./leetgo.nix
@@ -11,5 +10,6 @@ _: {
     ./tldr.nix
     ./vim.nix
     ./xcode.nix
+    ./zeal.nix
   ];
 }
