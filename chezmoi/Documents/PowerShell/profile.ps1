@@ -1,6 +1,9 @@
 # set environment
 $env:HOME = $HOME
 
+# use aliae
+aliae init pwsh | Invoke-Expression
+
 # use carapace
 $env:CARAPACE_BRIDGES = ''
 Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
