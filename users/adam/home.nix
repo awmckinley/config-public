@@ -156,7 +156,7 @@ in
         skellock.just
 
         # nushell language
-        TheNuProjectContributors.vscode-nushell-lang
+        thenuprojectcontributors.vscode-nushell-lang
       ];
 
       # freeze extensions

@@ -55,7 +55,7 @@
     };
 
     vscode-extensions = {
-      url = "github:nix-community/nix-vscode-extensions?rev=2a84ca07753e3ec608c96ed2907606361979467a";
+      url = "github:nix-community/nix-vscode-extensions?rev=2063542a934dd15fa21c6a60fb77bf93794187ea";
       inputs = {
         flake-compat.follows = "flake-compat";
         flake-utils.follows = "flake-utils";
