@@ -95,6 +95,12 @@ def init-goimapnotify [] {
 {{ end }}
 }
 
+def init-komorebi [] {
+	if (which komorebic) != [] {
+		komorebic enable-autostart --config $"($env.HOME)/.config/komorebi/komorebi.json" --bar --whkd
+	}
+}
+
 def init-mani [] {
 	if (which mani) == [] {
 		prereq-go
@@ -196,6 +202,7 @@ def main [] {
 	init-committed
 	init-darkman
 	init-goimapnotify
+	init-komorebi
 	init-mani
 	init-mbsync
 	init-opam

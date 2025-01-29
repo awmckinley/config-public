@@ -2,6 +2,9 @@
 alias:
   - name: task-delete-completed
     value: task +COMPLETED modify status:deleted
+env:
+  - name: KOMOREBI_CONFIG_HOME
+    value: '{{ .Home }}/.config/komorebi'
 path:
   - value: |
       {{ .Home }}/.cargo/bin
