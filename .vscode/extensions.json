@@ -3,6 +3,7 @@
         "asvetliakov.vscode-neovim",
         "davidanson.vscode-markdownlint",
         "dotjoshjohnson.xml",
+        "golang.go",
         "grapecity.gc-excelviewer",
         "gruntfuggly.todo-tree",
         "humao.rest-client",
@@ -18,6 +19,6 @@
         "mutantdino.resourcemonitor",
         "redhat.vscode-yaml",
         "skellock.just",
-        "TheNuProjectContributors.vscode-nushell-lang",
+        "thenuprojectcontributors.vscode-nushell-lang",
     ]
 }

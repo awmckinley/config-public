@@ -110,6 +110,9 @@ in
         # XML formatting, XQuery, and XPath tools
         dotjoshjohnson.xml
 
+        # rich Go language support
+        golang.go
+
         # edit Excel spreadsheets and CSV files
         grapecity.gc-excelviewer
 
