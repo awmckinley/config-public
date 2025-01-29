@@ -98,13 +98,6 @@
                 "source": "Windows.Terminal.VisualStudio"
             },
             {
-                "commandline": "%LocalAppData%\\Microsoft\\WinGet\\Packages\\elves.elvish_Microsoft.Winget.Source_8wekyb3d8bbwe\\elvish.exe",
-                "guid": "{ad20f3cb-8476-4941-b84b-20fb909652d5}",
-                "hidden": false,
-                "name": "Elvish",
-                "startingDirectory": "%USERPROFILE%"
-            },
-            {
                 "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
                 "hidden": false,
                 "name": "Git Bash",
