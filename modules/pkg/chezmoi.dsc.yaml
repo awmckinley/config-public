@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: version-fox.vfox
+    - id: twpayne.chezmoi
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install vfox
+        description: Install chezmoi
       settings:
-        id: version-fox.vfox
+        id: twpayne.chezmoi
         source: winget
