@@ -10,14 +10,14 @@ Set-PSReadLineOption -Colors @{ "Selection" = "`e[7m" }
 Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete
 carapace _carapace | Out-String | Invoke-Expression
 
+# use mise-en-place
+mise activate pwsh | Out-String | Invoke-Expression
+
 # use Starship
 starship init powershell --print-full-init | Out-String | Invoke-Expression
 
 # use Terminal-Icons
 Import-Module -Name Terminal-Icons
-
-# use vfox
-vfox activate pwsh | Out-String | Invoke-Expression
 
 # use zoxide
 zoxide init powershell | Out-String | Invoke-Expression
