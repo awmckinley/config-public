@@ -3,7 +3,7 @@
   imports = [
     ./cleanmymac.nix
     ./daisydisk.nix
-    ./dust.nix
+    ./dua.nix
     ./etcher.nix
     ./gemini.nix
     ./gparted.nix
