@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: PaprikaApp.Paprika.3
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Paprika Recipe Manager
+      settings:
+        id: PaprikaApp.Paprika.3
+        source: winget

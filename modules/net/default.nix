@@ -2,7 +2,7 @@ _: {
   imports = [
     ./grepcidr.nix
     ./imazing.nix
-    ./jump-desktop.nix
+    ./jumpdesktop.nix
     ./nmap.nix
     ./prettyping.nix
     ./rclone.nix

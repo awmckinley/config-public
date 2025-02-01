@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: mpv.net
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install mpv.net
+      settings:
+        id: mpv.net
+        source: winget

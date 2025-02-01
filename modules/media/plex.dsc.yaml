@@ -4,18 +4,18 @@ properties:
   configurationVersion: 0.2.0
   resources:
 
-    - id: DEVCOM.JetBrainsMonoNerdFont
+    - id: Plex.Plex
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install JetBrains Mono Nerd Font
+        description: Install Plex
       settings:
-        id: DEVCOM.JetBrainsMonoNerdFont
+        id: Plex.Plex
         source: winget
 
-    - id: SourceFoundry.HackFonts
+    - id: Plex.Plexamp
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Hack Fonts
+        description: Install Plexamp
       settings:
-        id: SourceFoundry.HackFonts
+        id: Plex.Plexamp
         source: winget
