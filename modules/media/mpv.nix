@@ -1,4 +1,5 @@
 {
+  isDarwin,
   isLinux,
   lib,
   pkgs,

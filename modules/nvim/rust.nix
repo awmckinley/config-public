@@ -4,6 +4,9 @@
     # downloads your Rust project's dependencies and builds your project
     cargo
 
+    # check and apply updates to installed executables
+    cargo-update
+
     # graph visualization tools
     graphviz
 
