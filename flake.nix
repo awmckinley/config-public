@@ -17,6 +17,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    disko = {
+      url = "https://flakehub.com/f/nix-community/disko/1.11.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     flake-compat = {
       url = "https://flakehub.com/f/edolstra/flake-compat/1.0.1";
       flake = false;
