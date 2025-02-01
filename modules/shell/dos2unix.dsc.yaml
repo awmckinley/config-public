@@ -1,0 +1,12 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+    - id: waterlan.dos2unix
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install dos2unix
+      settings:
+        id: waterlan.dos2unix
+        source: winget

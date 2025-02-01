@@ -1,7 +1,6 @@
 _: {
   imports = [
     ./aliae.nix
-    ./ast-grep.nix
     ./bat.nix
     ./choose.nix
     ./coreutils.nix
@@ -24,9 +23,10 @@ _: {
     ./pwsh.nix
     ./rg.nix
     ./sd.nix
+    ./sg.nix
     ./starship.nix
     ./trash.nix
-    ./tree.nix
+    ./tre.nix
     ./vhs.nix
     ./vivid.nix
     ./watch.nix

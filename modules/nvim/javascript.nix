@@ -20,9 +20,6 @@
     # Prettier, as a daemon, for improved formatting speed
     prettierd
 
-    # intelligent Tailwind CSS tooling
-    tailwindcss-language-server
-
     # Language Server Protocol (LSP) implementation for TypeScript using tsserver
     typescript-language-server
 

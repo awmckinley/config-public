@@ -3,10 +3,19 @@
 properties:
   configurationVersion: 0.2.0
   resources:
+
     - id: Discord.Discord
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
         description: Install Discord
       settings:
         id: Discord.Discord
+        source: winget
+
+    - id: OverlayedDev.Overlayed
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Overlayed
+      settings:
+        id: OverlayedDev.Overlayed
         source: winget

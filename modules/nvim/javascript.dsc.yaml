@@ -3,10 +3,35 @@
 properties:
   configurationVersion: 0.2.0
   resources:
+
+    - id: DenoLand.Deno
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Deno
+      settings:
+        id: DenoLand.Deno
+        source: winget
+
     - id: Oven-sh.Bun
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
         description: Install Bun
       settings:
         id: Oven-sh.Bun
+        source: winget
+
+    - id: pnpm.pnpm
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install pnpm
+      settings:
+        id: pnpm.pnpm
+        source: winget
+
+    - id: quick-lint.quick-lint-js
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install quick-lint-js
+      settings:
+        id: quick-lint.quick-lint-js
         source: winget

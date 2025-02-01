@@ -2,7 +2,7 @@
 {
   environment.systemPackages = with pkgs; [
     # object-oriented language for quick and easy programming
-    (ruby_3_3.withPackages (
+    (ruby_3_2.withPackages (
       ps: with ps; [
         # format ERB tools with speed and precision
         erb-formatter

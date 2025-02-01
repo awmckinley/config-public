@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: Microsoft.Azd
+    - id: sharkdp.vivid
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Azure Developer CLI
+        description: Install vivid
       settings:
-        id: Microsoft.Azd
+        id: sharkdp.vivid
         source: winget

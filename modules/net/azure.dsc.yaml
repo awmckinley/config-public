@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://aka.ms/configuration-dsc-schema/0.2
+---
+properties:
+  configurationVersion: 0.2.0
+  resources:
+
+    - id: Microsoft.Azd
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Azure Developer CLI
+      settings:
+        id: Microsoft.Azd
+        source: winget
+
+    - id: Microsoft.Azure.FunctionsCoreTools
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Azure Functions Core Tools
+      settings:
+        id: Microsoft.Azure.FunctionsCoreTools
+        source: winget
+
+    - id: Microsoft.Azure.StorageEmulator
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Azure Storage Emulator
+      settings:
+        id: Microsoft.Azure.StorageEmulator
+        source: winget
+
+    - id: Microsoft.Azure.StorageExplorer
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Azure Storage Explorer
+      settings:
+        id: Microsoft.Azure.StorageExplorer
+        source: winget
+
+    - id: Microsoft.AzureCLI
+      resource: Microsoft.WinGet.DSC/WinGetPackage
+      directives:
+        description: Install Azure CLI
+      settings:
+        id: Microsoft.AzureCLI
+        source: winget

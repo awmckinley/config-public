@@ -4,18 +4,18 @@ properties:
   configurationVersion: 0.2.0
   resources:
 
-    - id: Graphviz.Graphviz
+    - id: astral-sh.ruff
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Graphviz
+        description: Install Ruff
       settings:
-        id: Graphviz.Graphviz
+        id: astral-sh.ruff
         source: winget
 
-    - id: Rustlang.Rustup
+    - id: Python.Python.3.12
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Rustup
+        description: Install Python
       settings:
-        id: Rustlang.Rustup
+        id: Python.Python.3.12
         source: winget

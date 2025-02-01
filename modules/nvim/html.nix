@@ -11,6 +11,9 @@
       # language server for emmet.io
       # replaces: emmet-ls
       emmet-language-server
+
+      # intelligent Tailwind CSS tooling
+      tailwindcss-language-server
     ]
     ++ lib.optionals pkgs.stdenv.isDarwin [
       # HTML language server and templating language library

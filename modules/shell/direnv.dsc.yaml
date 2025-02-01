@@ -3,10 +3,10 @@
 properties:
   configurationVersion: 0.2.0
   resources:
-    - id: Microsoft.AzureCLI
+    - id: direnv.direnv
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install Azure CLI
+        description: Install direnv
       settings:
-        id: Microsoft.AzureCLI
+        id: direnv.direnv
         source: winget
