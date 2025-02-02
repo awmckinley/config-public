@@ -74,7 +74,11 @@ def init-burntcookie [] {
 }
 
 def init-cargo [] {
-	if (which cargo) != [] {
+	if (which cargo) == [] {
+		return
+	}
+
+	if not (success { cargo update --help }) {
 		print "Install cargo-update"
 		cargo install cargo-update
 		print ""
