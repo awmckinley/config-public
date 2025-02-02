@@ -1,8 +1,10 @@
-{ pkgs, ... }:
+{ inputs, pkgs, ... }:
 {
   imports = [
+    inputs.disko.nixosModules.disko
     ../../systems/windows
     ../../users/adam
+    ./disko-config.nix
   ];
 
   # machine name
