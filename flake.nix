@@ -83,6 +83,7 @@
       base16,
       darwin,
       determinate,
+      disko,
       home-manager,
       nixos-wsl,
       nixpkgs,
@@ -97,6 +98,10 @@
     in
     {
       formatter = forAllSystems (system: treefmtEval.${system}.config.build.wrapper);
+
+      packages = forAllSystems (system: {
+        disko = disko.packages.${system}.disko;
+      });
 
       # run: nix-darwin switch --flake "$(pwd)"
       darwinConfigurations = {

@@ -1,6 +1,7 @@
 [default.extend-words]
 ane = "ane"           # Apple Neural Engine
 caf = "caf"           # sound file extension
+crypted = "crypted"   # LUKS name
 edn = "edn"           # Extensible Data Notation
 hsa = "hsa"           # health savings account
 nd = "nd"             # North Dakota
