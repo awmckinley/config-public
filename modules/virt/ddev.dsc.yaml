@@ -4,10 +4,10 @@ properties:
   configurationVersion: 0.2.0
   resources:
 
-    - id: glzr-io.glazewm
+    - id: DDEVFoundation.DDEV
       resource: Microsoft.WinGet.DSC/WinGetPackage
       directives:
-        description: Install GlazeWM
+        description: Install DDEV
       settings:
-        id: glzr-io.glazewm
+        id: DDEVFoundation.DDEV
         source: winget

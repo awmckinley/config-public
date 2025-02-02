@@ -4,6 +4,5 @@ _: {
     ./distrobox.nix
     ./docker.nix
     ./lazydocker.nix
-    ./orbstack.nix
   ];
 }
