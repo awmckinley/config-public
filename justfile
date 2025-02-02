@@ -20,11 +20,6 @@ build: (_machine "build")
 diff:
     @chezmoi diff
 
-[doc("format disks")]
-[group("nix")]
-disko:
-    @sudo nix run .#disko -- --mode destroy,format,mount --flake .#nixos --root-mountpoint / --dry-run
-
 [doc("check for potential problems")]
 [group("chezmoi")]
 doctor:

@@ -1,14 +1,36 @@
-{ inputs, pkgs, ... }:
+{ config, pkgs, ... }:
 {
   imports = [
-    inputs.disko.nixosModules.disko
     ../../systems/windows
     ../../users/adam
-    ./disko-config.nix
+  ];
+
+  boot = {
+    extraModulePackages = with config.boot.kernelPackages; [
+      ecryptfs
+    ];
+
+    kernelPatches = [
+      {
+        name = "fscrypt-config";
+        patch = null;
+        extraConfig = ''
+          CONFIG_FS_ENCRYPTION y
+        '';
+      }
+    ];
+  };
+
+  environment.systemPackages = with pkgs; [
+    # high-level tool for the management of Linux filesystem encryption
+    fscrypt-experimental
   ];
 
   # machine name
   networking.hostName = "nixos";
+
+  # automatically mount on login
+  security.pam.enableFscrypt = true;
 
   # use the Tokyo Night scheme
   schemeDark = "${pkgs.base16-schemes}/share/themes/tokyo-night-dark.yaml";
