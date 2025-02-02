@@ -11,6 +11,10 @@ help:
 apply:
     @chezmoi apply --verbose
 
+[doc("boot new generation")]
+[group("nix")]
+boot: (_machine "boot")
+
 [doc("build new generation")]
 [group("nix")]
 build: (_machine "build")

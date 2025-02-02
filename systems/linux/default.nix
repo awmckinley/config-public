@@ -40,7 +40,7 @@
     enable = true;
 
     # colors palette
-    colors = with config.darkScheme; [
+    colors = with config.schemeDark; [
       base00
       red
       green

@@ -121,6 +121,21 @@
       };
 
       nixosConfigurations = {
+        niobium = nixpkgs.lib.nixosSystem {
+          system = "x86_64-linux";
+          modules = [
+            ./hosts/niobium
+          ];
+          specialArgs = {
+            inherit inputs;
+            desktop = "i3";
+            isDarwin = false;
+            isLinux = true;
+            isWSL = false;
+            remoteDesktop = true;
+          };
+        };
+
         nixos = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
           modules = [
