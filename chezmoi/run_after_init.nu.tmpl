@@ -157,15 +157,17 @@ def init-pdm [] {
 }
 
 def init-tailscale [] {
-{{ if .decrypt }}
 	if (which tailscale) == [] {
 		return
 	}
 
 	if not (success { tailscale status --peers=false }) {
+{{ if eq .chezmoi.os "windows" }}
 		tailscale up
-	}
+{{ else }}
+		sudo tailscale up
 {{ end }}
+	}
 }
 
 def init-tldr [] {
