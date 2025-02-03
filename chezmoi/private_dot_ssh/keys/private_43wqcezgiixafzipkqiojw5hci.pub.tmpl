@@ -1,5 +1,0 @@
-{{ range (onepassword "43wqcezgiixafzipkqiojw5hci").fields -}}
-{{   if (eq .label "public key") -}}
-{{     .value -}}
-{{   end -}}
-{{ end }}
