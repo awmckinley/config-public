@@ -99,6 +99,13 @@ def init-darkman [] {
 	}
 }
 
+def init-git [] {
+	# configure chezmoi git repo
+	cd "{{ .chezmoi.sourceDir }}"
+	git config set user.name "Adam McKinley"
+	git config set user.email "adam@awmckinley.net"
+}
+
 def init-goimapnotify [] {
 {{ if eq .chezmoi.os "darwin" }}
 	use goimapnotify.nu *
@@ -216,6 +223,7 @@ def main [] {
 	init-cargo
 	init-committed
 	init-darkman
+	init-git
 	init-goimapnotify
 	init-komorebi
 	init-mani

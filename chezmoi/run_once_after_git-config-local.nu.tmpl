@@ -1,9 +1,0 @@
-#!{{ lookPath "nu" }}
-
-let repoDir = "{{ .chezmoi.sourceDir }}"
-
-def main [] {
-	cd $"($repoDir)"
-	git config set user.name "Adam McKinley"
-	git config set user.email "adam@awmckinley.net"
-}
