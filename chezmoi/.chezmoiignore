@@ -2,15 +2,6 @@
 .config/yazi/plugins/
 key.txt.age
 
-{{ if eq .chezmoi.os "android" }}
-.config/goimapnotify/
-.config/maildir.json
-.config/vdirsyncer/
-.local/share/mbsync/
-.local/share/vdirsyncer/
-.ssh/keys/
-{{ end }}
-
 {{ if ne .chezmoi.os "darwin" }}
 .init.d/darwin*
 .local/bin/defaults-*
