@@ -104,4 +104,8 @@ yes | pkg install \
 	zig \
 	zoxide \
 	zsh
+
+if ! command -v doppler >/dev/null 2>&1; then
+	curl -Ls --tlsv1.2 --proto "=https" --retry 3 https://cli.doppler.com/install.sh | sudo sh
+fi
 {{- end -}}
