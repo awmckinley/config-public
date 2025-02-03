@@ -100,7 +100,7 @@ urgency.uda.effort.XXL.coefficient=-0.2
 # DEFAULTS
 
 # default to next command
-default.command=next
+default.command=custom.next
 
 # REPORTS
 
@@ -119,6 +119,14 @@ report.custom.dashboard.context=0
 report.custom.dashboard.sort=urgency-
 report.custom.dashboard.filter=limit:7 status:pending -BLOCKED
 report.custom.dashboard.dateformat=Y-M-D
+
+# next w/ minimal
+report.custom.next.description=custom: minimal next
+report.custom.next.columns=uuid.short,description.count
+report.custom.next.context=0
+report.custom.next.sort=urgency-
+report.custom.next.filter=status:pending -WAITING limit:page
+report.custom.next.dateformat=Y-M-D
 
 # tasks w/o project
 report.custom.step1.description=custom: needs project
