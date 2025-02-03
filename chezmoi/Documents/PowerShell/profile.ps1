@@ -16,8 +16,5 @@ mise activate pwsh | Out-String | Invoke-Expression
 # use Starship
 starship init powershell --print-full-init | Out-String | Invoke-Expression
 
-# use Terminal-Icons
-Import-Module -Name Terminal-Icons
-
 # use zoxide
 zoxide init powershell | Out-String | Invoke-Expression
