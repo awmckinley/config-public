@@ -37,6 +37,6 @@ export def provider [account] {
 }
 
 export def pwfile [account] {
-	let uuid = $account | get OpUuid
-	$"($env.HOME)/.local/share/mbsync/($uuid).pw"
+	let name = $account | get Passwd
+	$"($env.HOME)/.local/share/mbsync/($name).pw"
 }
