@@ -1,16 +1,16 @@
 {{ $decrypt := promptBoolOnce . "decrypt" "Decrypt private key" false -}}
 {{ $email := promptStringOnce . "email" "Email address" "adam@awmckinley.net" -}}
 {{ $recurrence := promptBoolOnce . "recurrence" "Calculate Taskwarrior recurrence" false -}}
+{{ $sshKeys := promptBoolOnce . "sshKeys" "Install SSH keys" false -}}
 
 encryption = "age"
-sourceDir = "{{ .chezmoi.sourceDir }}"
-umask = 0o022
-
-{{ if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
 scriptTempDir = "~/AppData/Local/Temp"
 {{ else }}
 scriptTempDir = "~/.local/tmp"
-{{ end }}
+{{- end }}
+sourceDir = "{{ .chezmoi.sourceDir }}"
+umask = 0o022
 
 [age]
     command = "rage"
@@ -20,12 +20,13 @@ scriptTempDir = "~/.local/tmp"
 [data]
     decrypt = {{ $decrypt }}
     email = {{ $email | quote }}
-{{ if eq .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "windows" }}
     gitDir = "~/AppData/Remote/Git"
 {{ else }}
     gitDir = "~/.config/git"
-{{ end }}
+{{- end }}
     recurrence = {{ $recurrence }}
+    sshKeys = {{ $sshKeys }}
 
 [diff]
     command = "delta"

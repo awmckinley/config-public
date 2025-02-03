@@ -70,6 +70,9 @@ Documents/
 .profile.d/rsync.zsh
 .profile.d/shellfish.zsh
 .ssh/config.private
-.ssh/keys/
 Code/
+{{ end }}
+
+{{ if not .sshKeys }}
+.ssh/keys/
 {{ end }}
