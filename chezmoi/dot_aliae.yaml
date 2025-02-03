@@ -1,7 +1,13 @@
 # yaml-language-server: $schema=https://aliae.dev/schema.json
 alias:
+  - name: cat
+    value: 'printf "ERROR: use bat instead\n"'
+    if: ne .Shell "pwsh"
+  - name: mani-status-all
+    value: mani run status --all --ignore-non-existing | rg -v "^$" | rg -v "TASK"
   - name: task-delete-completed
-    value: task +COMPLETED modify status:deleted
+    value: 'task +COMPLETED modify status:deleted'
+    if: ne .OS "windows"
 env:
   - name: KOMOREBI_CONFIG_HOME
     value: '{{ .Home }}/.config/komorebi'

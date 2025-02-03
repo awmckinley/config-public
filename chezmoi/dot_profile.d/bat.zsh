@@ -18,9 +18,6 @@ if command -v bat >/dev/null 2>&1; then
 		export BAT_THEME=ansi
 	fi
 
-	# disable cat
-	alias cat='printf "ERROR: use bat instead\n"'
-
 	help() {
 		"$@" --help 2>&1 | bat --plain --language=help
 	}
