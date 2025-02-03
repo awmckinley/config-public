@@ -1,0 +1,11 @@
+#!{{ lookPath "nu" }}
+
+def main [] {
+	if (which doppler) == [] {
+		return
+	}
+
+	if (doppler me | complete | $in.exit_code != 0) {
+		doppler login
+	}
+}
